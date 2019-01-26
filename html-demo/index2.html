@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style>
+        #chengdu{
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="chengdu" style="width: 1200px;height:900px;"></div>
+</body>
+
+<script type="text/javascript" src="js/echarts2.min.js"></script>
+<script type="text/javascript" src="js/echarts-config.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--<script type="text/javascript" src="js/echarts/echarts-all.js"></script>-->
+<script type="text/javascript">
+    var uploadedDataURL = "./data-1493307661784-BJIGZ5y1b.json";
+
+    /**
+     此版本通过设置geoindex && seriesIndex: [1] 属性来实现geo和map共存，
+     来达到hover散点和区域显示tooltip的效果
+
+     默认情况下，map series 会自己生成内部专用的 geo 组件。
+     但是也可以用这个 geoIndex 指定一个 geo 组件。
+     这样的话，map 和 其他 series（例如散点图）就可以共享一个 geo 组件了。
+     并且，geo 组件的颜色也可以被这个 map series 控制，从而用 visualMap 来更改。
+     当设定了 geoIndex 后，series-map.map 属性，
+     以及 series-map.itemStyle 等样式配置不再起作用，而是采用 geo 中的相应属性。
+     并且加了pin气泡图标以示数值大小
+     */
+        // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('chengdu'),"vintage");
+    myChart.showLoading();
+    $.getJSON(uploadedDataURL, function (geoJson) {
+        echarts.registerMap('chengdu', geoJson);
+        myChart.hideLoading();
+        var geoCoordMap = {
+            '省委': [104.07, 30.67],
+            '锦江区': [104.115, 30.61],
+            '青羊区': [103.97, 30.68],
+            '金牛区': [104.04, 30.72],
+            '武侯区': [104.03, 30.610],
+            '成华区': [ 104.14, 30.695],
+            '龙泉驿区': [104.291, 30.590],
+            '青白江区': [104.30, 30.833],
+            '双流区': [104.05, 30.473],
+            '温江区': [103.83, 30.697],
+            '郫都区': [ 103.88, 30.808],
+            '新都区': [104.16, 30.824]
+        };
+        var moveLine = {
+            'normal': [
+                {"fromName": "省委", "toName": "锦江区", 'coords': [[104.07, 30.67], [104.115, 30.61]]},
+                {"fromName": "省委", "toName": "青羊区", 'coords': [[104.07, 30.67], [103.97, 30.68],]},
+                {"fromName": "省委", "toName": "金牛区", 'coords': [[104.07, 30.67], [104.04, 30.72], [104.043487, 30.72]]},
+                {"fromName": "省委", "toName": "武侯区", 'coords': [[104.07, 30.67], [104.03, 30.610], [104.03, 30.610]]},
+                {"fromName": "省委", "toName": "成华区", 'coords': [[104.07, 30.67], [104.14, 30.695]]},
+                {"fromName": "省委", "toName": "龙泉驿区", 'coords': [[104.07, 30.67], [104.291, 30.590], [104.291, 30.590]]},
+                {"fromName": "省委", "toName": "青白江区", 'coords': [[104.07, 30.67], [104.30, 30.833], [104.30, 30.833]]},
+                {"fromName": "省委", "toName": "双流区", 'coords': [[104.07, 30.67], [104.05, 30.473]]},
+                {"fromName": "省委", "toName": "温江区", 'coords': [[104.07, 30.67], [103.83, 30.697]]},
+                {"fromName": "省委", "toName": "郫都区", 'coords': [[104.07, 30.67], [103.88, 30.808]]},
+                {"fromName": "省委", "toName": "新都区", 'coords': [[104.07, 30.67], [104.16, 30.824], [104.16, 30.824]]}
+
+            ],
+            'warning': []
+        };
+        var data = [
+            {name: '省委', value: 180},
+            {name: '锦江区', value: 220},
+            {name: '青羊区', value: 220},
+            {name: '金牛区', value: 190},
+            {name: '成华区', value: 190},
+            {name: '新都区', value: 190},
+            {name: '武侯区', value: 220},
+            {name: '龙泉驿区', value: 120},
+            {name: '双流区', value: 220},
+            {name: '温江区', value: 160},
+            {name: '郫都区', value: 120},
+            {name: '青白江区', value: 120}
+        ];
+        function randata() {
+            for(var i = 0; i < data.length; i++){
+                var ran = getRandom(100,300)
+                if( data[i].name != "省委"){
+                    data[i].value = ran;
+                }
+            }
+        }
+        /// 大红 、浅红 、粉红"#FF969B", 、淡红 、浅蓝 、 淡蓝 、浅蓝 、 中黄、 淡黄 、浅黄 、小黄 、小蓝 "#FFCC93", "#FDA501","#D0EDFF"
+        var dataColor =  ['#FF4F5B',"#FF6E75","#FF9C9F","#6EC7FF","#A6DCFE","#2B32B2","#FFA57A", "#FFB696",];
+        for (var i = dataColor.length -1; i > 0; i--){
+            //dataColor.push(dataColor[i])
+        }
+
+        var max = 480, min = 9; // todo
+        var maxSize4Pin = 100, minSize4Pin = 20;
+
+        var convertData = function (data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value)
+                    });
+                }
+            }
+            return res;
+        };
+
+       var option = {
+            backgroundColor: '',
+            title: {
+                top:20,
+                text: '',
+                subtext: '',
+                x: 'center',
+                textStyle: {
+                    color: '#ccc'
+                }
+            },
+
+            tooltip: {
+                trigger: 'item',
+                formatter: function (params) {
+                    if(typeof(params.value)[2] == "undefined"){
+                        return params.name + ' : ' + params.value;
+                    }else{
+                        return params.name + ' : ' + params.value[2];
+                    }
+                }
+            },
+            legend: {
+                orient: 'vertical',
+                y: 'bottom',
+                x:'right',
+                data:[],
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            visualMap: { //热力图颜色
+                show: true,
+                type:"piecewise",
+                min: 0,
+                max: 500,
+                left: 'left',
+                top: 'bottom',
+                text: ['高', '低'], // 文本，默认为数值文本
+                calculable: true,
+                seriesIndex: [1],
+                inRange: {
+                    color: dataColor,
+                    // color: ['#6EC7FF', 'rgba(3,4,5,0.4)', 'red'],
+                    symbolSize: [60, 200]
+                }
+            },
+            // toolbox: { //菜单
+            //     show: true,
+            //     orient: 'vertical',
+            //     left: 'right',
+            //     top: 'center',
+            //     feature: {
+            //             dataView: {readOnly: false},
+            //             restore: {},
+            //             saveAsImage: {}
+            //             }
+            // },
+            geo: {
+                show: true,
+                map: 'chengdu',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: false,
+                    }
+                },
+                //是否可以点击鼠标、滚轮缩放
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: 'transparent',
+                        borderColor: '#3fdaff',
+                        borderWidth: 2,
+                        shadowColor: 'rgba(63, 218, 255, 0.5)',
+                        shadowBlur: 30
+                    },
+                    emphasis: {
+                        areaColor: '#2B91B7',
+                    }
+                }
+            },
+            series : [
+                {
+                    name: 'light',
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    data: convertData(data),
+                    symbolSize: function (val) {
+                        return val[2] / 10;
+                    },
+                    label: {
+                        normal: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: true
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#F4E925'
+                        }
+                    }
+                },
+                {
+                    type: 'map',
+                    map: 'chengdu',
+                    geoIndex: 0,
+                    aspectScale: 0.75, //长宽比
+                    showLegendSymbol: false, // 存在legend时显示
+                    selectedMode:true,
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false,
+                            textStyle: {
+                                color: '#ccc'
+                            }
+                        }
+                    },
+                    roam: true,
+                    itemStyle: {
+                        normal: {
+                            areaColor: '#031525',
+                            borderColor: '#FFFFFF',
+                        },
+                        emphasis: {
+                            areaColor: '#2B91B7'
+                        }
+                    },
+                    animation: false,
+                    data: data
+                },
+                {
+                    name: 'Top 5', //热力点图
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    data: convertData(data.sort(function (a, b) {
+                        return b.value - a.value;
+                    }).slice(0, 15)),
+                    symbolSize: function (val) {
+                        return val[2] / 10;
+                    },
+                    effectType:'ripple',
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    label: {
+                        normal: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#F4E925',
+                            shadowBlur: 10,
+                            shadowColor: '#05C3F9'
+                        }
+                    },
+                    zlevel: 1
+                },
+                {
+                    name: '线路',
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    zlevel: 2,
+                    large: true,
+                    effect: {
+                        show: true,
+                        constantSpeed: 30,
+                        symbol: 'arrow',//ECharts 提供的标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+                        symbolSize: 0,
+                        trailLength: 0,
+                    },
+
+                    lineStyle: {
+                        normal: {
+                            color:'#0fff17',
+                            /*
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0, color: '#58B3CC'
+                                }, {
+                                    offset: 1, color: '#F58158'
+                                }], false),*/
+                            width: 2,
+                            opacity: 1.0,
+                            curveness: 0.15
+                        }
+                    },
+                    data: moveLine.normal
+                },
+                {
+                    name: '线路',
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    zlevel: 2,
+                    large: true,
+                    effect: {
+                        show: true,
+                        constantSpeed: 30,
+                        symbol: 'arrow',//ECharts 提供的标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+                        symbolSize: 10,
+                        trailLength: 0,
+                    },
+
+                    lineStyle: {
+                        normal: {
+                            color:'rgb(255, 0, 0)',
+                            width: 2,
+                            opacity: 1,
+                            curveness: 0.15
+                        }
+                    },
+                    data: moveLine.warning
+                }
+
+            ]
+        };
+
+        setInterval(function () {
+            randata();
+            myChart.setOption({
+                series: [{
+                    data:  convertData(data)
+                }, {
+                    data: data
+                },
+                {
+                    data: convertData(data.sort(function (a, b) {
+                        return b.value - a.value;
+                    }).slice(0, 15))
+                }]
+            })
+        }, 5000)
+        myChart.setOption(option);
+    });
+
+</script>
+</html>

@@ -1,0 +1,68 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            <form id="datacenter_form" method="post" action="">
+                <div>
+                    <h3><span class="h3-span">Api名称：</span>${title}</h3>
+                </div>
+                <input type="hidden" id="title" name="title" value="${title}"/>
+                <input type="hidden" id="url" name="apiurl" value="${apiurl}"/>
+                <div class="row">
+                    @if(dataList != null){
+                    <div class="col-sm-12" id="itemsArea">
+                        @for(item in dataList){
+                        <div class="form-group" name="dictItem" id="">
+                            <div class="hr-line-dashed"></div>
+                            @if(item.key != null){
+                            <input type="hidden" name="data[${item.id}][key]" value="${item.key}" />
+                            <div class="col-sm-2">${item.key}</div>
+                            @}
+                            <div class="col-sm-8">
+                                @if(item.data != null){
+                                    @for(val in item.data){
+                                    <span class="col-sm-2 control-label">${val.name}</span>
+                                    <span class="col-sm-4">
+                                        <input type="hidden" name="data[${item.id}][${val.id}][name]" value="${val.name}" />
+                                        <input class="form-control " type="text" name="data[${item.id}][${val.id}][value]" value="${val.value}"/>
+                                         @if(val.value1 != null){
+                                        <input class="form-control" type="text" name="data[${item.id}][${val.id}][value1]" value="${val.value1}"/>
+                                         @}
+                                    </span>
+                                    @}
+                                @}else{
+                                    <span class="col-sm-4 control-label">${item.name}</span>
+                                    <span class="col-sm-8">
+                                        <input type="hidden" name="data[${item.id}][name]" value="${item.name}" />
+                                        <input class="form-control display-inline" type="text" name="data[${item.id}][value]" value="${item.value}"/>
+                                        @if(item.value1 !=null){
+                                        <input class="form-control display-inline" type="text" name="data[${item.id}][value1]" value="${item.value1}"/>
+                                        @}
+                                    </span>
+                                @}
+                            </div>
+                            <div class="col-sm-2">
+                                <#button btnCss="danger" name="删除" id="cancel" icon="fa-remove" clickFun="DataCenterInfo.deleteItem(event)"/>
+                            </div>
+                        </div>
+                        @}
+                    </div>
+                    @}else{
+                    <div class="col-sm-12">
+                        <h3>接口暂无数据</h3>
+                    </div>
+                    @}
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="row btn-group-m-t">
+                    <div class="col-sm-10">
+                        <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="DataCenterInfo.editSubmit()"/>
+                        <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="DataCenterInfo.close()"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="${ctxPath}/static/modular/dataCenter/data/info.js"></script>
+@}

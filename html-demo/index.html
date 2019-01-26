@@ -1,0 +1,1866 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="css/echarts.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <style>
+        div {
+            margin: 20px 0px;
+            padding: 20px 0px;
+        }
+
+        body {
+            background: url("./img/background-body.jpg") center;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="quxian" style="width: 600px;height:400px;"></div>
+<div id="zhuzhuang" style="width: 600px;height:400px;"></div>
+<div id="zhuzhuang2" style="width: 600px;height:400px;"></div>
+<div id="zhuzhuang3" style="width: 600px;height:400px;"></div>
+<div id="zhuzhuang4" style="width: 600px;height:400px;"></div>
+<div id="shanxing" style="width: 600px;height:400px;"></div>
+<div id="henzhuxing" style="width: 600px;height:400px;"></div>
+<div id="yuanshanxing" style="width: 600px;height:400px;"></div>
+<div id="huangxing" style="width: 600px;height:400px;"></div>
+<div id="yuanbing" style="width: 600px;height:400px;"></div>
+<div id="yuanbingxing2" style="width: 600px;height:400px;"></div>
+<div id="qiantaoyaun" style="width: 600px;height:400px;"></div>
+<div id="zhuxiang" style="width: 600px;height:400px;"></div>
+<div id="zhuxiang2" style="width: 600px;height:400px;"></div>
+
+<!--<img id="image-pic" src="img/9.png"/>-->
+</body>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/echarts2.min.js"></script>
+<script type="text/javascript" src="js/echarts-config.js"></script>
+
+<script type="text/javascript">
+
+    // // 基于准备好的dom，初始化echarts图表
+    // var zhuxiang2 = echarts.init(document.getElementById('zhuxiang2'),"vintage");
+    //
+    //
+    // // 为echarts对象加载数据
+    // zhuxiang2.setOption(option);
+</script>
+
+<!--自定义柱形图 横-->
+<script type="text/javascript">
+
+    var bgImg = 'img/15.png';
+
+    var fillImg = 'img/16.png';
+
+    // 基于准备好的dom，初始化echarts图表
+    var zhuxiang = echarts.init(document.getElementById('zhuxiang'), "vintage");
+    var maxData = 200;
+
+    option = {
+        "title": {
+            "text": "自定义象形柱图--PictorialBarCustomize",
+            "left": "center",
+            "y": "10",
+            "textStyle": {
+                "color": "#fff"
+            }
+        },
+        "grid": {
+            "top": "10%",
+            "bottom": 10
+        },
+        "tooltip": {
+            "trigger": "item",
+            "textStyle": {
+                "fontSize": 12
+            },
+            "formatter": "{b0}:{c0}"
+        },
+        "xAxis": {
+            "max": 300,
+            "splitLine": {
+                "show": false
+            },
+            "axisLine": {
+                "show": false
+            },
+            "axisLabel": {
+                "show": false
+            },
+            "axisTick": {
+                "show": false
+            }
+        },
+        "yAxis": [
+            {
+                "type": "category",
+                "inverse": false,
+                "data": [
+                    "山西",
+                    "四川",
+                    "西藏",
+                    "北京",
+                    "上海",
+                    "内蒙古",
+                    "云南",
+                    "黑龙江",
+                    "广东",
+                    "江苏"
+                ],
+                "axisLine": {
+                    "show": false
+                },
+                "axisTick": {
+                    "show": false
+                },
+                "axisLabel": {
+                    "margin": -4,
+                    "textStyle": {
+                        "color": "#fff",
+                        "fontSize": 16.25
+                    }
+                }
+            },
+
+        ],
+        series: [
+            {
+                type: "pictorialBar",
+                symbolClip: true,
+                barWidth: 20,
+                symbolOffset: [15, 0],
+                symbolRepeat: "fixed",
+                itemStyle: {
+                    normal: {
+                        label: {show: true, position: 'right'}
+                    }
+                },
+                symbolBoundingData: 300,
+                data: [13, 42, 67, 81, 86, 94, 166, 220, 249, 262],
+                symbol: 'image://' + fillImg,
+                symbolSize: ["100%", '100%'],
+                z: 10
+            },
+            {
+                type: "pictorialBar",
+                barWidth: 20,
+                symbolOffset: [20, 0],
+                symbolRepeat: "fixed",
+                label: {
+                    normal: {
+                        show: false
+                    }
+                },
+                animationDuration: 0,
+                symbolBoundingData: 300,
+                symbolOffset: [20, 0],
+                data: [33, 42, 67, 81, 86, 94, 166, 220, 249, 262],
+                symbol: 'image://' + bgImg,
+                symbolSize: ["100%", '100%'],
+                z: 5
+            }
+        ]
+    };
+
+
+    // Make dynamic data.
+    function random() {
+        return +(Math.random() * (maxData - 10)).toFixed(1);
+    }
+
+    setInterval(function () {
+        var dynamicData = [random(), random(), random(), random(), random(), random(), random(), random(), random(), random()];
+        zhuxiang.setOption({
+            series: [{
+                data: dynamicData.slice()
+            }, {
+                data: dynamicData.slice()
+            }]
+        })
+    }, 3000)
+
+    // 为echarts对象加载数据
+    zhuxiang.setOption(option);
+</script>
+
+<!--自定义柱形图 竖-->
+<script type="text/javascript">
+    var bgImg = 'img/14.png';
+
+    var fillImg = 'img/13.png';
+
+    // 基于准备好的dom，初始化echarts图表
+    var zhuxiang2 = echarts.init(document.getElementById('zhuxiang2'), "vintage");
+
+
+    var chartData = [
+        {
+            name: '通信',
+            value: 2691
+        },
+        {
+            name: '网络',
+            value: 4000
+        },
+        {
+            name: '能源',
+            value: 3416
+        },
+        {
+            name: '建筑',
+            value: 1666
+        },
+    ];
+
+    function ran3() {
+        for (var i = 0; i < chartData.length; i++) {
+            var ran = (Math.random() * 3000).toFixed(0);
+            chartData[i].value = ran;
+        }
+    }
+
+    var bgData = [];
+    var itemData = [];
+
+    // 取出每一条数据value,作为显示数据
+    chartData.forEach(function (items, index) {
+        itemData.push(items.value);
+    })
+
+    // 取出所有数据最大值,作为背景象形柱图数据
+    chartData.forEach(function (items, index) {
+        bgData.push({
+            name: items.name,
+            value: Math.max.apply(null, itemData)
+        });
+    })
+
+    // 所有数据最大值
+    var maxValue = Math.max.apply(null, itemData);
+
+    // 字体 distance放大参数
+    var scale = 1;
+
+    //富文本配置
+    var rich = {
+        white: {
+            color: "#fff",
+            align: 'left',
+            fontSize: 18 * scale,
+            padding: [0, 0]
+        },
+    };
+
+    var option = {
+        // backgroundColor: '#031f2d',
+        tooltip: {
+            formatter: '{b} : {c}',
+        },
+        grid: {
+            left: '3%',
+            right: '6%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: (function (data) {
+                var arr = [];
+                data.forEach(function (items) {
+                    arr.push(items.name);
+                });
+                return arr;
+            })(chartData),
+
+            boundaryGap: ['20%', '20%'],
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                textStyle: {
+                    fontSize: 16 * scale,
+                    color: '#3fdaff'
+                }
+            }
+        }],
+        yAxis: [{
+            type: 'value',
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: true,
+                inside: true,
+                length: 10 * scale,
+                lineStyle: {
+                    color: '#0b5263'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#0b5263',
+                    fontSize: 14 * scale
+                }
+            },
+        }],
+        series: [
+            //背景
+            {
+                name: 'bg',
+                type: 'pictorialBar',
+                barWidth: '25',
+                // barGap: '0%',
+                silent: true,
+                label: {
+                    normal: {
+                        show: true,
+                        position: "top",
+                        distance: 20 * scale,
+                        formatter: function (params) {
+                            var stuNum = 0;
+                            chartData.forEach(function (value, index, array) {
+                                if (params.name == value.name) {
+                                    stuNum = value.value;
+                                }
+                            })
+                            return stuNum + '{white| 人}';
+                        },
+                        textStyle: {
+                            color: "#ffc72b",
+                            fontSize: 20 * scale
+                        },
+                        rich: rich
+                    }
+                },
+                symbol: 'image://' + bgImg,
+                symbolClip: false,
+                symbolBoundingData: maxValue,
+                symbolSize: [20, '100%'],
+                data: bgData
+            },
+            {
+                name: '数据',
+                type: 'pictorialBar',
+                barWidth: '25',
+                barGap: '-100%',
+                data: chartData,
+                z: 3,
+                symbol: 'image://' + fillImg,
+                symbolClip: true,
+                symbolBoundingData: maxValue,
+                symbolSize: [20, '100%']
+            },
+        ]
+    };
+    setInterval(function () {
+        ran3();
+        zhuxiang2.setOption({
+            series: [{
+                data: bgData
+            }, {
+                data: chartData
+            }]
+        })
+    }, 3000)
+    // 为echarts对象加载数据
+    zhuxiang2.setOption(option);
+</script>
+
+
+<!--yuanbing-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var yuanbing = echarts.init(document.getElementById('yuanbing'), "vintage");
+    option = {
+        title: {
+            text: '会员性别比例',
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data: ['男生', '女生']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        color: ["#49F2AD", "#FF5D2E"],
+        calculable: true,
+        series: [
+            {
+                name: '会员性别比例',
+                type: 'pie',
+                radius: '55%',
+                center: ['40%', '60%'],
+                data: [
+                    {value: 335, name: '男生'},
+                    {value: 310, name: '女生'},
+                ]
+            }
+        ]
+    };
+
+    // 为echarts对象加载数据
+    yuanbing.setOption(option);
+
+</script>
+<script type="text/javascript">
+
+    var fileUrl = "img/wenlitupian.png";
+    // 基于准备好的dom，初始化echarts图表
+    var yuanbingxing2 = echarts.init(document.getElementById('yuanbingxing2'));
+    var option = {
+        title: {
+            text: '{a} 各种病百分比',
+            x: 'left',
+            left: 20,
+            textStyle: {
+                fontSize: '14',
+                color: '#9AA7DF'
+            },
+            formatter: ["{a|这段文本采用样式a}"],
+            rich: {
+                a: {
+                    backgroundColor: {
+                        image: 'img/tubiao.png'
+                    },
+                    height: 40
+                }
+            }
+        },
+
+        grid: {
+            x: '10%',
+            y: '10%'
+        },
+        series: [{
+            name: '折扣明细',
+            type: 'pie',
+            center: ['40%', '40%'],
+            radius: ['45%', '55%'],
+            legendHoverLink: true, // 是否启用图例 hover 时的联动高亮
+            hoverAnimation: true, // 是否开启 hover 在扇区上的放大动画效果
+            hoverOffset: 15, // 高亮扇区的偏移距离
+            selectedMode: 'single', // 选中模式
+            selectedOffset: 15, // 选中偏移距离
+            animationType: 'scale', // 展开效果
+            itemStyle: {
+                normal: {},
+            },
+            label: {
+                normal: {
+                    formatter: '{a|{b}}',
+                    // formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                    // formatter: '{a|{b}}\n{hr|}\n{c}  {per|{d}%}',
+                    shadowBlur: 3,
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 2,
+                    padding: [0, 7],
+                    rich: {
+                        a: {
+                            color: '#fff',
+                            fontSize: 12,
+                            lineHeight: 20,
+                            align: 'center',
+                            fontWeight: "bold",
+                        }
+                    }
+                }
+            },
+            data: [{
+                value: 40,
+                name: '活动卡折扣',
+                itemStyle: {
+                    normal: {
+                        color: '#00A1FE',
+                        // 纹理填充
+                        // color: {
+                        //     image: document.getElementById('image-pic'), // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
+                        //     repeat: 'repeat', // 是否平铺, 可以是 'repeat-x', 'repeat-y', 'no-repeat'
+                        //     width: 3
+                        // },
+                        // color: {
+                        //     type: 'linear',
+                        //     x: 0,
+                        //     y: 0,
+                        //     x2: 0,
+                        //     y2: 1,
+                        //     colorStops: [{
+                        //         offset: 0, color: 'red' // 0% 处的颜色
+                        //     }, {
+                        //         offset: 1, color: 'blue' // 100% 处的颜色
+                        //     }],
+                        //     globalCoord: false // 缺省为 false
+                        // }
+                    }
+                }
+            }, {
+                value: 20,
+                name: '卡消费折扣',
+                itemStyle: {
+                    normal: {
+                        color: '#003E68',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10
+                    }
+                }
+            }, {
+                value: 20,
+                name: '电子券折扣',
+                itemStyle: {
+                    normal: {
+                        color: '#49F2AC'
+                    }
+                }
+            }, {
+                value: 10,
+                name: '消费返利',
+                itemStyle: {
+                    normal: {
+                        color: '#00578E'
+                    }
+                }
+            }, {
+                value: 10,
+                name: '梯级优惠',
+                itemStyle: {
+                    normal: {
+                        color: '#ADFF2F'
+                    }
+                }
+            }]
+        }]
+    };
+
+    // 为echarts对象加载数据
+    yuanbingxing2.setOption(option);
+</script>
+
+
+<!--//yuanshanxing  极坐标-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var yuanshanxing = echarts.init(document.getElementById('yuanshanxing'));
+
+    option = {
+        title: {
+            show: true,
+            text: "极坐标名称",
+            textStyle: {
+                fontSize: 16,
+                fontWeight: 'bolder',
+                color: "#fff",
+            }
+        },
+        toolbox: {
+            show: true,
+        },
+        legend: {
+            show: true,
+            orient: "vertical",
+            left: 10,
+            top: "25%",
+            itemGap: 20,
+            itemWidth: 15,
+            itemHeight: 7,
+            data: ['周一', '周二', '周三', '周四'],
+            textStyle: {
+                color: "#fff"
+            },
+        },
+        angleAxis: {
+            show: false,
+            max: function (value) {
+                return value.max + 10;
+            },
+            axisLine: {
+                lineStyle: {
+                    color: "#fff",
+                }
+            },
+            axisTick: {
+                lineStyle: {
+                    color: "#fff",
+                }
+            },
+        },
+        radiusAxis: {
+            type: 'category',
+            data: ['周一', '周二', '周三', '周四'],
+            nameTextStyle: {
+                color: "#fff",
+            },
+            interval: 10,
+            axisLine: {
+                lineStyle: {
+                    color: "#fff",
+                }
+            },
+            axisTick: {
+                lineStyle: {
+                    color: "#fff",
+                }
+            },
+        },
+
+        polar: {
+            show: true,
+            trigger: "axis",
+            tooltip: {
+                show: true,
+                textStyle: {
+                    color: "#fff",
+                }
+            }
+        },
+        color: ["#128BE0", "#48F2AC", "#FE6740", "#9DB3FE"],
+        series: [
+            {
+                name: "周一",
+                type: 'bar',
+                itemStyle: {
+                    normal: {}
+                },
+                data: [30, 0, 0, 0],
+                coordinateSystem: 'polar',
+            },
+            {
+                name: "周二",
+                type: 'bar',
+                itemStyle: {
+                    normal: {}
+                },
+                data: [0, 40, 0, 0],
+                coordinateSystem: 'polar',
+            },
+            {
+                name: "周三",
+                type: 'bar',
+                itemStyle: {
+                    normal: {}
+                },
+                data: [0, 0, 20, 0],
+                coordinateSystem: 'polar',
+            },
+            {
+                name: "周四",
+                type: 'bar',
+                itemStyle: {
+                    normal: {}
+                },
+                data: [0, 0, 0, 50],
+                coordinateSystem: 'polar',
+            }
+        ],
+    };
+
+    // 为echarts对象加载数据
+    yuanshanxing.setOption(option);
+</script>
+<!--环形图-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var huangxing = echarts.init(document.getElementById('huangxing'),"vintage");
+    var dataStyle = {
+        normal: {
+            // label:{show:false},
+            // labelLine: {show: false}
+        }
+    };
+    var dataLabel = {
+        show: true,
+        color: "#FFF",
+        align: "left",
+    };
+    var placeHolderStyle = {
+        normal: {
+            color: 'rgba(0,0,0,0)',
+            label: {show: false},
+            labelLine: {show: false}
+        },
+        emphasis: {
+            color: 'rgba(0,0,0,0)'
+        }
+    };
+    option = {
+        title: {
+            text: '你幸福吗？',
+            itemGap: 20,
+            textStyle: {
+                color: 'rgba(30,144,255,0.8)',
+                fontFamily: '微软雅黑',
+                fontSize: 20,
+                fontWeight: 'bolder'
+            }
+        },
+        tooltip: {
+            show: true,
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 10,
+            top: "25%",
+            itemGap: 25,
+            itemWidth: 20,
+            itemHeight: 10,
+            data: ['68%的人表示过的不错', '29%的人表示生活压力很大', '3%的人表示“我姓曾”', "3%的人表示"],
+            textStyle: {
+                color: "#fff"
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        color: ["#128BE0", "#48F2AC", "#FE6740", "#9DB3FE"],
+        series: [
+            {
+                name: '1',
+                type: 'pie',
+                clockWise: true,
+                radius: [125, 130],
+                itemStyle: dataStyle,
+                label: dataLabel,
+                hoverAnimation: false,
+                data: [
+                    {
+                        value: 68,
+                        name: '68%的人表示过的不错'
+                    },
+                    {
+                        value: 32,
+                        name: '',
+                        itemStyle: placeHolderStyle
+                    }
+                ]
+            },
+            {
+                name: '2',
+                type: 'pie',
+                clockWise: true,
+                radius: [105, 110],
+                itemStyle: dataStyle,
+                label: dataLabel,
+                hoverAnimation: false,
+                data: [
+                    {
+                        value: 29,
+                        name: '29%的人表示生活压力很大'
+                    },
+                    {
+                        value: 71,
+                        name: '',
+                        itemStyle: placeHolderStyle
+                    }
+                ]
+            },
+            {
+                name: '3',
+                type: 'pie',
+                clockWise: true,
+                radius: [85, 90],
+                itemStyle: dataStyle,
+                label: dataLabel,
+                hoverAnimation: false,
+                data: [
+                    {
+                        value: 23,
+                        name: '3%的人表示“我姓曾”'
+                    },
+                    {
+                        value: 77,
+                        name: '',
+                        itemStyle: placeHolderStyle
+                    }
+                ]
+            },
+            {
+                name: '3',
+                type: 'pie',
+                clockWise: true,
+                radius: [65, 70],
+                label: dataLabel,
+                itemStyle: dataStyle,
+                hoverAnimation: false,
+                data: [
+                    {
+                        value: 23,
+                        name: '3%的人表示'
+                    },
+                    {
+                        value: 77,
+                        name: '',
+                        itemStyle: placeHolderStyle
+                    }
+                ]
+            }
+        ]
+    };
+
+
+    var datayun = [{
+        'name': '北京',
+        'value': 5600
+    }, {
+        'name': '上海',
+        'value': 3600
+    }, {
+        'name': '广州',
+        'value': 1500
+    },{
+        'name': '拉拉',
+        'value': 2000
+    }]
+    let seriesObjs = [];
+    let legendData  =[];
+    let r = 100;
+    let color = ["#128BE0", "#48F2AC", "#FE6740", "#9DB3FE"];
+    var placeHolderStyle = {
+        normal: {
+            label: {
+                show: false,
+                position: 'center'
+            },
+            labelLine: {
+                show: false
+            },
+            color: 'rgba(0, 0, 0, 0)',
+            borderColor: 'rgba(0, 0, 0, 0)',
+            borderWidth: 0
+        }
+    }
+
+    yunRan();
+    function yunRan() {
+        seriesObjs = [];
+        legendData= [];
+        for (let i = 0; i < datayun.length; i++) {
+            legendData.push(datayun[i].name)
+            datayun[i].value = getRandom(1000,1700)
+            let seriesObj = {
+                name: datayun[i].name,
+                type: 'pie',
+                clockWise: true,
+                radius: [r - 1 - i * 20, r - i * 20],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        borderWidth: 5,
+                        shadowBlur: 50,
+                        borderColor: color[i],
+                        shadowColor: 'rgba(142,152,241, 0.6)'
+                    },
+                },
+                hoverAnimation: false,
+                data: [
+                    {
+                    value: datayun[i].value
+                    },
+                    {
+                    value: datayun[0].value * 4 / 3 - datayun[i].value,
+                    name: 'invisible',
+                    itemStyle: placeHolderStyle
+                }]
+            }
+            seriesObjs.push(seriesObj)
+        }
+    }
+    option3 = {
+        tooltip: {
+            show: true,
+            formatter: '{a} : {c}'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 10,
+            top: "25%",
+            itemGap: 25,
+            itemWidth: 20,
+            itemHeight: 10,
+            data: legendData,
+            textStyle: {
+                color: "#fff"
+            }
+        },
+        toolbox: {
+            show: false
+        },
+        series: seriesObjs
+    }
+    setInterval(function () {
+        yunRan();
+        huangxing.setOption({
+            legend:{
+                data:legendData
+            },
+            series: seriesObjs
+        })
+    }, 5000)
+
+    // 为echarts对象加载数据
+    huangxing.setOption(option3);
+</script>
+
+<script type="text/javascript">
+
+    // // 基于准备好的dom，初始化echarts图表
+    var qiantaoyaun = echarts.init(document.getElementById('qiantaoyaun'),"vintage");
+    var dataNub = [];
+    var names = ['国家劳模','省级劳模','市级劳模'];
+    function qianRan() {
+        dataNub=[];
+        for(var i=0; i<names.length; i++){
+            var ran = getRandom(0,100)
+            dataNub.push({
+                "value":ran,
+                "name":names[i]
+            });
+
+        }
+        var dataCount = sum(dataNub);
+        for (var i=0; i<dataNub.length; i++){
+            // console.log(dataNub[i]["value"]/dataCount)
+            dataNub[i]['name'] = dataNub[i]['name'] + " " + ((dataNub[i]["value"]/dataCount)*100).toFixed(2) +"%";
+        }
+    }
+    qianRan();
+
+    option = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : 'left',
+            data:['国家劳模','省级劳模','市级劳模']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true,
+                    type: ['pie', 'funnel']
+                },
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : false,
+        series : [
+            {
+                name:'访问来源',
+                type:'pie',
+                selectedMode: 'single',
+                radius : [0, 50],
+                // for funnel
+                x: '20%',
+                width: '40%',
+                funnelAlign: 'right',
+                max: 1548,
+
+                itemStyle : {
+                    normal : {
+                        label : {
+                            show:false,
+                            position : 'inner'
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    }
+                },
+                data:dataNub
+            },
+            {
+                name:'访问来源',
+                type:'pie',
+                radius : [70, 100],
+                // for funnel
+                x: '60%',
+                width: '35%',
+                funnelAlign: 'left',
+                max: 1048,
+
+                data:dataNub
+            }
+        ]
+    };
+    setInterval(function () {
+        qianRan();
+        qiantaoyaun.setOption({
+            series: [{
+                data: dataNub
+            }, {
+                data: dataNub
+            }]
+        })
+    }, 5000)
+
+
+    // 为echarts对象加载数据
+    qiantaoyaun.setOption(option);
+</script>
+
+
+<!--//henzhuxing-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var henzhuxing = echarts.init(document.getElementById('henzhuxing'));
+    var saleDate = [
+        {name: '北京京都大酒店', age: 132},
+        {name: '北京京城大酒店', age: 321},
+        {name: '北京京都罗斯克大酒店', age: 452},
+        {name: '北京国际大酒店', age: 190},
+        {name: '北京君乐大酒店', age: 176},
+        {name: '北京奥思克米大酒店', age: 376},
+        {name: '北京华福大酒店', age: 387},
+    ];
+    //desc 倒序 asc 正序 固定写法 对 saleDate.age进行排序
+    saleDate.sort(getSortFun('asc', 'age'));
+
+    function getSortFun(order, sortBy) {
+        var ordAlpah = (order == 'asc') ? '>' : '<';
+        var sortFun = new Function('a', 'b', 'return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?1:-1');
+        return sortFun;
+    }
+
+    var datale = [], datale2 = [];
+    for (var i = 0; i < saleDate.length; i++) {
+        datale.push(saleDate[i].name)
+        datale2.push(saleDate[i].age)
+    }
+    option = {
+        color: ['#4cc47d'],
+        tooltip: {
+            trigger: 'axis',
+        },
+        grid: {
+            left: '-10%',
+            right: '4%',
+            bottom: '3%',
+            top: '5%',
+            containLabel: true
+        },
+        yAxis: [
+            {
+                type: 'category',
+                data: datale,
+                textStyle: {
+                    verticalAlign: 'bottom',
+                    lineHeight: 56,
+                },
+                axisLabel: {
+                    show: true,
+                    color: "#fff",
+                    margin: -10,
+                    align: 'left',
+                    verticalAlign: 'bottom',
+                    padding: [0, 0, 15, 0]
+                },
+                axisTick: {
+                    show: false,
+                    alignWithLabel: true
+                },
+                axisLine: {
+                    show: false,
+                }
+            }
+        ],
+        xAxis: [
+            {
+                type: 'value',
+                show: false
+            }
+        ],
+        series: [
+            {
+                type: 'bar',
+                barWidth: '15%',
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: [5],
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right'
+                    }
+                },
+                data: datale2
+            }
+        ]
+    };
+    // 为echarts对象加载数据
+    henzhuxing.setOption(option);
+
+</script>
+
+
+<!--//shanxing-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var shanxing = echarts.init(document.getElementById('shanxing'));
+    var scaleData = [{
+        'name': '工程建设',
+        'value': 10
+    },
+        {
+            'name': '产权交易',
+            'value': 20
+        },
+        {
+            'name': '土地交易',
+            'value': 20
+        },
+        {
+            'name': '其他交易',
+            'value': 27
+        },
+        {
+            'name': '政府采购',
+            'value': 23
+        }
+    ];
+    var rich = {
+        white: {
+            color: '#ddd',
+            align: 'center',
+            padding: [5, 0]
+        }
+    };
+    var placeHolderStyle = {
+        normal: {
+            label: {
+                show: false
+            },
+            labelLine: {
+                show: false
+            },
+            color: 'rgba(0, 0, 0, 0)',
+            borderColor: 'rgba(0, 0, 0, 0)',
+            borderWidth: 0
+        }
+    };
+    var data = [];
+    for (var i = 0; i < scaleData.length; i++) {
+        data.push({
+            value: scaleData[i].value,
+            name: scaleData[i].name,
+            itemStyle: {
+                normal: {
+                    borderWidth: 5,
+                    shadowBlur: 30,
+                    borderColor: new echarts.graphic.LinearGradient(0, 0, 1, 1, [{
+                        offset: 0,
+                        color: '#7777eb'
+                    }, {
+                        offset: 1,
+                        color: '#70ffac'
+                    }]),
+                    shadowColor: 'rgba(142, 152, 241, 0.6)'
+                }
+            }
+        }, {
+            value: 4,
+            name: '',
+            itemStyle: placeHolderStyle
+        });
+    }
+    var seriesObj = [{
+        name: '',
+        type: 'pie',
+        clockWise: false,
+        radius: [95, 100],
+        hoverAnimation: false,
+        itemStyle: {
+            normal: {
+                label: {
+                    show: true,
+                    position: 'outside',
+                    color: '#ddd',
+                    formatter: function (params) {
+                        var percent = 0;
+                        var total = 0;
+                        for (var i = 0; i < scaleData.length; i++) {
+                            total += scaleData[i].value;
+                        }
+                        percent = ((params.value / total) * 100).toFixed(0);
+                        if (params.name !== '') {
+                            return params.name + '\n{white|' + '占比' + percent + '%}';
+                        } else {
+                            return '';
+                        }
+                    },
+                    rich: rich
+                },
+                labelLine: {
+                    show: false
+                }
+            }
+        },
+        data: data
+    }];
+    option = {
+        tooltip: {
+            show: false
+        },
+        legend: {
+            show: false
+        },
+        toolbox: {
+            show: false
+        },
+        series: seriesObj
+    }
+    // 为echarts对象加载数据
+    shanxing.setOption(option);
+</script>
+
+<!--//zhuzhuang-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var zhuzhuang = echarts.init(document.getElementById('zhuzhuang'));
+    var option = {
+        title: {
+            text: '柱状',
+            subtext: '纯属虚构'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            x: "center",
+            y: "bottom",
+            data: ['蒸发量', '降水量']
+        },
+        toolbox: {
+            show: true,
+            color: ['#1e90ff', '#22bb22', '#4b0082', '#d2691e'],
+            feature: { //菜单  工具箱
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                barWidth: "10",//设置柱状图宽度
+                name: '蒸发量',
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: [15, 15, 0, 0],
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#00E784'
+                        }, {
+                            offset: 0.8,
+                            color: '#1A3A3C'
+                        }], false)
+                    }
+                },
+                data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+                markPoint: {
+                    large: true,
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name: '降水量',
+                type: 'line',
+                smooth: true, //是否改变为曲线图
+                itemStyle: {
+                    normal: {
+                        color: "#00E784"
+                    }
+                },
+                data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+                markPoint: {
+                    data: [
+                        {name: '年最高', value: 182.2, xAxis: 7, yAxis: 183, symbolSize: 18},
+                        {name: '年最低', value: 2.3, xAxis: 11, yAxis: 3}
+                    ]
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+    // 为echarts对象加载数据
+    zhuzhuang.setOption(option);
+
+
+    // 基于准备好的dom，初始化echarts图表
+    var zhuzhuang2 = echarts.init(document.getElementById('zhuzhuang2'));
+    var option2 = {
+        xAxis: {
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            axisLine: {
+                lineStyle: {
+                    color: '#0177d4'
+                }
+            },
+            axisLabel: {
+                color: '#fff',
+                fontSize: 14
+            }
+        },
+        yAxis: {
+            name: "（人）",
+            nameTextStyle: {
+                color: '#fff',
+                fontSize: 16
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#0177d4'
+                }
+            },
+            axisLabel: {
+                color: '#fff',
+                fontSize: 16
+            },
+            splitLine: {
+                show: false,
+                lineStyle: {
+                    color: '#0177d4'
+                }
+            },
+            interval: 100,
+            max: 1000
+
+        },
+
+        series: [{
+            type: 'bar',
+            barWidth: 15,
+            itemStyle: {
+                normal: {
+                    barBorderRadius: [10, 10, 0, 0],
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#00b0ff'
+                    }, {
+                        offset: 0.8,
+                        color: '#7052f4'
+                    }], false),
+                    label: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '12',
+                            fontFamily: '微软雅黑',
+                            fontWeight: 'bold'
+                        }
+                    }
+                }
+            },
+            data: [254, 254, 654, 454, 757, 111, 211, 211, 211, 211, 211, 211],
+            markPoint: {
+                large: true,
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+        }]
+    };
+    // 为echarts对象加载数据
+    zhuzhuang2.setOption(option2);
+</script>
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var zhuzhuang4 = echarts.init(document.getElementById('zhuzhuang4'), "vintage");
+
+    var dataEmphasis = {
+        barBorderWidth: 1,
+        shadowBlur: 5,
+        shadowOffsetX: 0,
+        shadowOffsetY: 0,
+        shadowColor: 'rgba(0,0,0,0.5)'
+    };
+    var xAxisData = [];
+    var data1 = []
+    var data2 = [];
+
+    function random_z4() {
+        data1 = []
+        data2 = [];
+        for (var i = 1; i <= 12; i++) {
+            xAxisData.push(i + "月");
+            data1.push((Math.random() * 20).toFixed(2));
+            data2.push(-(Math.random() * 20).toFixed(2));
+        }
+    }
+
+    random_z4()
+    option = {
+        legend: {
+            data: ['Android', 'IOS'],
+            align: 'left',
+            left: 10
+        },
+        // brush: { //选择模式
+        //     toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+        //     xAxisIndex: 0
+        // },
+
+        tooltip: {},
+        xAxis: {
+            data: xAxisData,
+            name: "",
+            axisLine: {
+                lineStyle: {
+                    color: "#fff"
+                }
+            },
+            silent: false,
+            axisLine: {onZero: true},
+            splitLine: {show: false},
+            splitArea: {show: false},
+            axisTick: {
+                alignWithLabel: true
+            }
+        },
+        yAxis: {
+            inverse: true,
+            splitArea: {show: false}
+        },
+        grid: {
+            left: 100
+        },
+
+        series: [
+            {
+                name: 'Android',
+                type: 'bar',
+                barWidth: 10,
+                barGap: "-100%",
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: [0, 0, 5, 5]
+                    },
+                    emphasis: dataEmphasis
+                },
+                data: data1
+            },
+            {
+                name: 'IOS',
+                type: 'bar',
+                barWidth: 10,
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: [5, 5, 0, 0]
+                    },
+                    emphasis: dataEmphasis
+                },
+                data: data2
+            },
+        ]
+    };
+
+
+    option2 = {
+        legend: {
+            orient: 'vertical',
+            x: '90%',
+            top: '48%',
+            data: ['收入', '支出']
+
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        grid: {
+            right: '14%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            data: xAxisData,
+            axisTick: {
+                alignWithLabel: true
+            }
+        }],
+        yAxis: [{
+            type: 'value'
+        }],
+        series: [{
+            name: '收入',
+            type: 'bar',
+            stack: '总量',
+            barWidth: '10',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            data: data1
+        }, {
+            name: '支出',
+            type: 'bar',
+            stack: '总量',
+            barWidth: '10',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'bottom'
+                }
+            },
+            data:data2
+        }]
+    };
+    /*zhuzhuang4.on('zhuzhuang4', renderBrushed);
+
+    function renderBrushed(params) {
+        var brushed = [];
+        var brushComponent = params.batch[0];
+
+        for (var sIdx = 0; sIdx < brushComponent.selected.length; sIdx++) {
+            var rawIndices = brushComponent.selected[sIdx].dataIndex;
+            brushed.push('[Series ' + sIdx + '] ' + rawIndices.join(', '));
+        }
+
+        myChart.setOption({
+            title: {
+                backgroundColor: '#fff',
+                text: 'SELECTED DATA INDICES: \n' + brushed.join('\n'),
+                bottom: 0,
+                right: 0,
+                width: 100,
+                textStyle: {
+                    fontSize: 12,
+                    color: '#fff'
+                }
+            }
+        });
+    }*/
+
+    setInterval(function () {
+        random_z4();
+        zhuzhuang4.setOption({
+            series: [{
+                data: data1
+            }, {
+                data: data2
+            }]
+        })
+    }, 5000)
+
+    // 为echarts对象加载数据
+    zhuzhuang4.setOption(option);
+</script>
+
+<!--柱状堆积图-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var zhuzhuang3 = echarts.init(document.getElementById('zhuzhuang3'), "vintage");
+    option = {
+        title: {
+            text: '柱状堆积图',
+            subtext: 'Chrome下测试数据'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            y: "bottom",
+            data: [
+                '2k数据', '2w数据',
+                '21k数据', '21w数据'
+            ],
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        // grid: {y: 70, y2:30, x2:20},
+        xAxis: [
+            {
+                type: 'category',
+                data: ['周一', '周二', '周三', '周四', '周五', "周六", "周天"]
+            },
+            {
+                type: 'category',
+                axisLine: {show: false},
+                axisTick: {show: false},
+                axisLabel: {show: false},
+                splitArea: {show: false},
+                splitLine: {show: false},
+                data: ['周一', '周二', '周三', '周四', '周五', "周六", "周天"]
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                axisLabel: {formatter: '{value} ms'}
+            }
+        ],
+        series: [
+            {
+                name: '2k数据',
+                type: 'bar',
+                barWidth: "10",//设置柱状图宽度
+                itemStyle: {normal: {color: 'rgba(1,161,255,1)', label: {show: true}}},
+                data: [40, 155, 95, 75, 180, 90, 200]
+            },
+            {
+                name: '2w数据',
+                type: 'bar',
+                barWidth: "10",//设置柱状图宽度
+                itemStyle: {normal: {color: 'rgba(255,103,65,1)', label: {show: true, textStyle: {color: '#27727B'}}}},
+                data: [100, 200, 105, 100, 156, 150, 100]
+            },
+
+            {
+                name: '21k数据',
+                type: 'bar',
+                barWidth: "10",//设置柱状图宽度
+                xAxisIndex: 1,
+                itemStyle: {normal: {color: 'rgba(1,161,255,0.5)', label: {show: false}}},
+                data: [491, 235, 389, 355, 347, 400, 300]
+            },
+            {
+                name: '21w数据',
+                type: 'bar',
+                barWidth: "10",//设置柱状图宽度
+                xAxisIndex: 1,
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(255,103,65,0.5)', label: {
+                            show: true, formatter: function (p) {
+                                return p.value > 0 ? (p.value + '+') : '';
+                            }
+                        }
+                    }
+                },
+                data: [300, 300, 217, 300, 120, 200, 330]
+            }
+
+        ]
+    };
+
+    // 为echarts对象加载数据
+    zhuzhuang3.setOption(option);
+</script>
+<!--//quxian-->
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('quxian'), "vintage");
+    var time = timeData(false);
+    var now = new Date(time);
+    var dateTimeX = [];
+    for (var i = 1; i <= 12; i++) {
+        dateTimeX.push(now.getFullYear() + "." + i);
+    }
+    var z_data1= [];
+    var z_data2 = [];
+    function zhexianRan() {
+        z_data1 = [];
+        z_data2 = [];
+        for (var y = 0; y <12; y++){
+            z_data1.push(getRandom(0,20))
+            z_data2.push(getRandom(0,30))
+        }
+    }
+    zhexianRan();
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '月订单走势',
+            textStyle: {
+                fontStyle: 20,
+                fontWeight: "bold",
+            },
+            left: 50,
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        // legend: {
+        //     data: ['销量', "件数"]
+        // },
+        xAxis: [{
+            data: dateTimeX,
+            type: "category",
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: "#fff",
+                }
+            },
+        }],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '销量',
+                type: 'line',
+                smooth: true, //是否改变为曲线图
+                showAllSymbol: true, //标注所有数据点
+                itemStyle: {
+                    normal: {
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#019BF6'
+                            }, {
+                                offset: 0.9,
+                                color: '#031930'
+                            }], false),
+                            type: 'default'
+                        }
+                    }
+                },
+                data: z_data1
+            },
+            {
+                name: '件数',
+                type: 'line',
+                smooth: false, //是否改变为曲线图
+                showAllSymbol: true, //标注所有数据点
+                itemStyle: {
+                    normal: {
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#C8A5DD'
+                            }, {
+                                offset: 0.8,
+                                color: '#15324A'
+                            }], false),
+                            type: 'default'
+                        }
+                    }
+                },
+                lineStyle:{
+                    color:"#C8A5DD"
+                },
+                data: z_data2
+            }
+        ]
+    };
+
+    // var ecConfig = require('js/echarts/config');
+    // myChart.on(ecConfig.EVENT.PIE_SELECTED, function (param) {
+    //     var selected = param.selected;
+    //     var serie;
+    //     var str = '当前选择： ';
+    //     for (var idx in selected) {
+    //         serie = option.series[idx];
+    //         for (var i = 0, l = serie.data.length; i < l; i++) {
+    //             if (selected[idx][i]) {
+    //                 str += '【系列' + idx + '】' + serie.name + ' : ' +
+    //                     '【数据' + i + '】' + serie.data[i].name + ' ';
+    //             }
+    //         }
+    //     }
+    //     document.getElementById('wrong-message-pay').innerHTML = str;
+    // })
+    setInterval(function () {
+        zhexianRan();
+        myChart.setOption({
+            series: [{
+                data: z_data1
+            }, {
+                data: z_data2
+            }]
+        })
+    }, 5000)
+
+    // 为echarts对象加载数据
+    myChart.setOption(option);
+</script>
+</html>

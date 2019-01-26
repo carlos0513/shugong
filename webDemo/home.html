@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>方框页面</title>
+
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <!--共用部分css-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+
+    <!--共用部分js-->
+    <script src="js/jquery-3.0.0.min.js" type="text/javascript"></script>
+</head>
+<style type="text/css">
+    body{
+        overflow: scroll;
+    }
+    .content{
+        width: 1920px;
+        height: 1080px;
+        background: #00A1FF;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+        zoom: 1;
+    }
+
+</style>
+<script>
+    $(function () {
+        var isBool = false;
+        // $(".content").css("zoom","0.33");
+        $(".home-div").bind("click",function () {
+            console.log(isBool)
+            if (isBool){
+                // $(".content").animate({"-webkit-transform":"scale(1)"},500);
+                $(".content").animate({
+                    "zoom":"1",
+                    "top":"0",
+                    "left":"0"
+                },500);
+            } else{
+                // $(".content").animate({"-webkit-transform":"scale(0.3)"},500);
+                $(".content").animate({
+                    "zoom":"0.325",
+                    "top":"15%",
+                    "left":"10px"
+                },500);
+            }
+            isBool = !isBool;
+        });
+        $(".home-back-bottom").bind("click",function () {
+            console.log(22222222222);
+        });
+    });
+</script>
+<body>
+<article class="zzsc-container ">
+    <img class="home-back-top" src="image/paging/fenge1.png">
+    <div class="metro">
+        <div class="home-div">
+            <img class="home-back-reght" src="image/paging/fenge5.png">
+            <div class="home-border-reght"></div>
+            <img class="home-back-bottom" src="image/paging/fenge4.png">
+        </div>
+        <div class="home-div">
+            <div class="home-border-left"></div>
+            <img class="home-back-bottom_2" src="image/paging/fenge4.1.png">
+        </div>
+        <div class="home-div">
+            <img class="home-back-left" src="image/paging/fenge5.1.png">
+            <div class="home-border-left"></div>
+            <img class="home-back-bottom" src="image/paging/fenge4.png">
+        </div>
+
+        <div class="home-div">
+            <div class="home-border-left"></div>
+            <img class="home-back-reght" src="image/paging/fenge5.png">
+        </div>
+
+        <div class="home-div">
+            <div class="home-border-left"></div>
+        </div>
+        <div class="home-div">
+            <img class="home-back-left" src="image/paging/fenge5.1.png">
+            <div class="home-border-left"></div>
+        </div>
+    </div>
+    <img class="home-back-bottom" src="image/paging/fenge3.png">
+
+    <!--<div class="box">-->
+    <!--<span class="close"></span>-->
+    <!--</div>-->
+</article>
+
+<script>
+    $(document).ready(function () {
+        var $box = $('.box');
+        var $metro = $(".metro");
+        // $('.metro div').each(function () {
+        //     var color = $(this).css('backgroundColor');
+        //     $(this).click(function () {
+        //         console.log(111)
+        //         $box.css('backgroundColor', color);
+        //         $box.addClass('open');
+        //         $metro.hide()
+        //     });
+        //     $('.close').click(function () {
+        //         console.log(222)
+        //         $box.removeClass('open');
+        //         $box.css('backgroundColor', 'transparent');
+        //         $metro.show()
+        //     });
+        // });
+    });
+
+</script>
+</body>
+
+</html>

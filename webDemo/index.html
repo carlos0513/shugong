@@ -1,0 +1,2551 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>成都职工大数据中心</title>
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <!--共用部分css-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/addone.css" rel="stylesheet" type="text/css">
+    <link href="css/number.css" rel="stylesheet" type="text/css">
+    <!--共用部分js-->
+    <script src="js/jquery-3.0.0.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/layui/layui.js" type="text/javascript"></script>
+    <script src="js/data.js" type="text/javascript"></script>
+</head>
+<div class="loading"  id="loading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;position: absolute">
+    <div style="position: absolute;margin: auto;left:0;right: 0;margin-top: 20%; width: 686px;">
+        <div style="background: url('image/loading/waimian.png') center no-repeat; height: 71px;width: 686px; text-align: left;overflow: hidden;">
+            <div style="width:182px; position: absolute;overflow: hidden;">
+                <img src="image/loading/jiao2.png"style=""/>
+            </div>
+            <div style="background: url('image/loading/limian2.png') left no-repeat; height: 71px; margin-left:-100%;" id="loading_per"></div>
+        </div>
+        <div style="background: url('image/loading/number.png') left no-repeat; height: 104px;width: 153px;margin-left: -5%;text-align: center;font-size: 30px;padding-top: 36px;color: white;"id="loading_number">
+            0%
+        </div>
+        <div style="background: url('image/loading/loading...gif') left no-repeat;height: 23px;width: 151px;margin: -30% auto auto auto" ></div>
+    </div>
+</div>
+<body id="htmlBody" onload="clickBottonFull()">
+<article class="zzsc-container hidder">
+    <img class="home-back-top" src="image/paging/fenge1.png">
+
+    <div class="metro">
+        <span class="home-botton-hui">返回首页</span>
+        <div class="home-div">
+            <span class="home-title-img">工会数据</span>
+            <img class="home-back-reght" src="image/paging/fenge5.png">
+            <div class="home-border-reght"></div>
+            <img class="home-back-bottom" src="image/paging/fenge4.png">
+        </div>
+        <div class="home-div">
+            <span class="home-title-img">运营数据</span>
+            <div class="home-border-left"></div>
+            <img class="home-back-bottom_2" src="image/paging/fenge4.1.png">
+        </div>
+        <div class="home-div">
+            <span class="home-title-img">公共服务数据</span>
+            <img class="home-back-left" src="image/paging/fenge5.1.png">
+            <div class="home-border-left"></div>
+            <img class="home-back-bottom" src="image/paging/fenge4.png">
+        </div>
+
+        <div class="home-div">
+            <span class="home-title-img">福利数据</span>
+            <div class="home-border-left"></div>
+            <img class="home-back-reght" src="image/paging/fenge5.png">
+        </div>
+
+        <div class="home-div">
+            <span class="home-title-img">消费数据</span>
+            <div class="home-border-left"></div>
+        </div>
+        <div class="home-div">
+            <span class="home-title-img">实时数据</span>
+            <img class="home-back-left" src="image/paging/fenge5.1.png">
+            <div class="home-border-left"></div>
+        </div>
+    </div>
+    <img class="home-back-bottom" src="image/paging/fenge3.png">
+</article>
+<div id="indexHtml" class="view_height" style="display: block;opacity: 0;">
+    <div class="navbar navbar-fixed-top menu_top margin-bottom-none">
+        <div class="container col-xs-100">
+            <div class="col-xs-10 ">
+                <img class="nav-img-left" src="image/view/border-left.png" />
+            </div>
+            <div class="navbar-header col-xs-20 text-center padding-none">
+                <!--<div class="nav-border-xian nav-border-boottom-left"></div>-->
+                <!--<div class="nav-border-xian nax-border-xie-right"></div>-->
+                <a class="herder-title" href="#">成都职工大数据中心</a>
+            </div>
+            <div class="col-xs-15 nav-zhong  padding-none">
+                <img src="image/view/border-zhong-duan.png"/>
+            </div>
+            <div class="col-xs-44 navbar-nume padding-none" role="navigation">
+                <div class="col-xs-100">
+                    <!--<div class="nav-border-xian nav-border-boottom-right" ></div>-->
+                    <!--<div class="nav-border-xian nax-border-xie-left"></div>-->
+                    <!--<ul class="nav navbar-nav">-->
+                    <ul class="navbar-nav">
+                        <li class="hidden-sm"><a href="javascript:;">首页</a></li>
+                        <li class="hidden-sm"><a href="javascript:;">工会数据</a></li>
+                        <li class="hidden-sm"><a href="javascript:;">运营数据</a></li>
+                        <li class="hidden-sm"><a href="javascript:;">公共服务数据</a></li>
+                        <li class="hidden-sm"><a href="javascript:;">福利数据</a></li>
+                        <li class="hidden-sm"><a href="javascript:;">消费数据</a></li>
+                        <li class="hidden-sm"><a href="javascript:;">实况数据</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <img class="nav-img-right"  src="image/view/border-right.png"  />
+            </div>
+            <div class="index-top-button">
+                <button class="screen-botton">分屏展示</button>
+            </div>
+        </div>
+    </div>
+    <!-- 分页 -->
+    <div style="margin: 0;padding: 0;">
+        <!-- 主页 -->
+        <div class="content_element">
+            <div class="commnets_div margin-top-100" id="indexBody">
+                <div class="container container-fluid ">
+                    <div class="commont-top col-xs-100">
+                        <div class="content_table col-xs-100">
+                            <div class="round_p_div">
+                                <div class="round_menu index-roll">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <div class="round_title index-roll-title">
+                                    <span class="trans-font">数据总览</span>
+                                </div>
+
+                                <div class="index_table_ul table_content_ul">
+                                    <!-- 实时数据统计图位置 -->
+                                    <div class="li-table  numberDiv2">
+                                        <div class="numberRun number1"></div>
+                                        <div class="numberTitle"><span class="trans-font">工会券发放总额</span></div>
+                                    </div>
+                                    <div class="li-table numberDiv2">
+                                        <div class="numberRun number2"></div>
+                                        <div class="numberTitle"><span class="trans-font">惠普总人数</span></div>
+                                    </div>
+                                    <div class="li-table numberDiv2">
+                                        <div class="numberRun number3"></div>
+                                        <div class="numberTitle"><span class="trans-font">劳模工匠人数</span></div>
+                                    </div>
+                                    <div class="li-table numberDiv">
+                                        <div class="numberRun number4"></div>
+                                        <div class="numberTitle"><span class="trans-font">消费总额</span></div>
+                                    </div>
+                                    <div class="li-table numberDiv">
+                                        <div class="numberRun number5"></div>
+                                        <div class="numberTitle"><span class="trans-font">工会券发放总额</span></div>
+                                    </div>
+                                    <div class="li-table numberDiv">
+                                        <div class="numberRun number6"></div>
+                                        <div class="numberTitle"><span class="trans-font">惠普人次</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content_table col-xs-100 margin-top-28">
+                        <div class="index_commont col-xs-25">
+                            <div class="col-xs-100" onclick="model_show(this,'bar_consumption_count','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                        </div>
+                                        <img class="round_decorate_left" alt="" src="image/view/1.png">
+                                        <img class="round_decorate_reght" alt="" src="image/view/2.2.png">
+                                        <img class="round_decorate_left_bottom" alt="" src="image/view/3.png">
+                                        <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                                        <!--<div class="round_hr round_border-top"></div>-->
+                                        <div class="round_hr round_border-right-index1"></div>
+                                        <div class="round_hr round_border-bottom"></div>
+                                        <div class="round_hr round_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left">
+                                            <span class="trans-font">消费数据 - 用户消费情况</span>
+                                        </div>
+                                        <div class="content_echarts">
+                                            <!-- 团指数统计图位置  -->
+                                            <div id="bar_consumption_count"  class="index_consumption_count cartogram_index"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-100 margin-top-22" onclick="model_show(this,'line_index_public_count','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                        </div>
+                                        <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                        <img class="round_decorate_reght" alt="" src="image/view/2.2.png">
+                                        <img class="round_decorate_left_bottom" alt="" src="image/view/3.1.png">
+                                        <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                                        <!--<div class="round_hr round_border-top"></div>-->
+                                        <div class="round_hr index_border-right"></div>
+                                        <div class="round_hr round_border-bottom"></div>
+                                        <div class="round_hr round_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left_3">
+                                            <span class="trans-font">公共服务数据</span>
+                                        </div>
+                                        <div class="content_echarts ">
+                                            <!-- 团指数统计图位置  -->
+                                            <div class="line_index_public_count cartogram_index" id="line_index_public_count"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="index_commont  col-xs-28" onclick="model_show_map(this,'map_index','all')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <!--<img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">-->
+                                        <!--<img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">-->
+                                        <!--<img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">-->
+                                        <!--<img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">-->
+                                    </div>
+                                    <img class="round-back-top" src="image/view/0.png"/>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.png">-->
+                                    <img class="round_decorate_reght" alt="" src="image/view/2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">
+                                    <img class="round_decorate_right_bottom" alt="" src="image/view/4.2.png">
+                                    <div class="round_hr labour_mar_border-top"></div>
+                                    <div class="round_hr labour_mar_border-right"></div>
+                                    <div class="round_hr labour_mar_border-bottom"></div>
+                                    <div class="round_hr round_border-left"></div>
+
+                                    <div style="" class="round_title_2 round_title_left_1">
+                                        <span class="trans-font">工会用户数据 - 会员热力分布图</span>
+                                    </div>
+                                    <div class="content_echarts">
+                                        <!-- 团指数统计图位置  -->
+                                        <div class="index_map_count my_map" id="map_index2"></div>
+                                        <div class="index_map_count" id="map_index"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="index_commont  col-xs-40 margin-left-b-2">
+                            <div class="col-xs-47"  onclick="model_show(this,'line_active_count','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                        </div>
+                                        <img class="round_decorate_left" alt="" src="image/view/1.png">
+                                        <img class="round_decorate_reght" alt="" src="image/view/2.3.png">
+                                        <img class="round_decorate_left_bottom" alt="" src="image/view/3.png">
+                                        <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                                        <!--<div class="round_hr round_border-top"></div>-->
+                                        <div class="round_hr round_border-right-index1"></div>
+                                        <div class="round_hr round_border-bottom"></div>
+                                        <div class="round_hr round_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left">
+                                            <div class="trans-font">实况数据 - 活动活跃指数</div>
+                                        </div>
+                                        <div class="content_echarts padding-left-right-5">
+                                            <!-- 团指数统计图位置  -->
+                                            <div class="index_active_count cartogram_index" id="line_active_count"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-47 margin-left-b-5" onclick="model_show(this,'line_welfare_people','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                                 style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png"
+                                                 style="z-index:4;">
+                                        </div>
+                                        <img class="round_decorate_left" alt="" src="image/view/1.png">
+                                        <img class="round_decorate_reght" alt="" src="image/view/2.2.png">
+                                        <img class="round_decorate_left_bottom" alt="" src="image/view/3.png">
+                                        <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                                        <!--<div class="round_hr round_border-top"></div>-->
+                                        <div class="round_hr round_border-right-index1"></div>
+                                        <div class="round_hr round_border-bottom"></div>
+                                        <div class="round_hr round_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left_3">
+                                            <span class="trans-font">福利数据</span>
+                                        </div>
+                                        <div class="content_echarts padding-left-right-5">
+                                            <!-- 团指数统计图位置  -->
+                                            <div class="index_active_count cartogram_index"
+                                                 id="line_welfare_people"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-100 margin-top-22" onclick="model_show(this,'bar_app_wechat','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                                 style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png"
+                                                 style="z-index:4;">
+                                        </div>
+                                        <img class="round_decorate_left" alt="" src="image/view/1.1.png">
+                                        <img class="round_decorate_reght" alt="" src="image/view/2.2.png">
+                                        <img class="round_decorate_left_bottom" alt="" src="image/view/3.png">
+                                        <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                                        <!--<div class="round_hr round_border-top"></div>-->
+                                        <div class="round_hr round_border-right-index1"></div>
+                                        <div class="round_hr round_border-bottom"></div>
+                                        <div class="round_hr round_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left_2">
+                                            <span class="trans-font">运营数据 - App 下载量/微信关注量</span>
+                                        </div>
+                                        <div class="content_echarts ">
+                                            <!-- 团指数统计图位置  -->
+                                            <div class="index_operate_count cartogram_index" id="bar_app_wechat"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 公会数据 -->
+    <div class="content_element ">
+        <div class="commnet margin-top-100 trans-body" id="labourBody">
+            <div class="container container-fluid">
+                <div class="commont-top col-xs-100 padding-right-none">
+                    <div class="col-xs-53">
+                        <!-- 上部分 -->
+                        <div>
+                            <div class="col-xs-19">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                        </div>
+                                        <div style="" class="round_title">
+                                            <div class="trans-font">实时数据</div>
+                                        </div>
+                                        <div class="content_echarts padding-top-30">
+                                            <!-- 团指数统计图位置  -->
+                                            <div class="table_content_ul labour-data-list">
+                                                <div class="li-table numberDiv2">
+                                                    <div class="numberRun number1"></div>
+                                                    <div class="numberTitle"><div class="trans-font">全市工会会员数</div></div>
+                                                </div>
+                                                <div class="li-table numberDiv2">
+                                                    <div class="numberRun number2"></div>
+                                                    <div class="numberTitle"><div class="trans-font">全市工会组织数</div></div>
+                                                </div>
+                                                <div class="li-table numberDiv2">
+                                                    <div class="numberRun number3"></div>
+                                                    <div class="numberTitle"><div class="trans-font">在线会员数</div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_table col-xs-29 margin-left-b-5"  onclick="model_show(this,'pie_sex','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png"
+                                                 style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png"
+                                                 style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                                 style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png"
+                                                 style="z-index:4;">
+                                        </div>
+                                        <img class="round_decorate_left_bottom" alt=""
+                                             src="image/view/3.2.png">
+                                        <img class="round_decorate_right_bottom" alt=""
+                                             src="image/view/4.1.png">
+                                        <!--<div class="round_hr round_border-top"></div>-->
+                                        <div class="round_hr round_border-right"></div>
+                                        <!--<div class="round_hr round_border-bottom"></div>-->
+                                        <div class="round_hr labour_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left_3">
+                                            <div class="trans-font">会员性别比例</div>
+                                        </div>
+                                        <div class="content_echarts padding-siz-20">
+                                            <!-- 团指数统计图位置  -->
+                                            <div id="pie_sex" class="labour_bar_sex cartogram_labour"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_table col-xs-36 margin-left-b-5"  onclick="model_show(this,'pie_labour_age','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png"
+                                                 style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png"
+                                                 style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                                 style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png"
+                                                 style="z-index:4;">
+                                        </div>
+                                        <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                        <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                        <img class="round_decorate_left_bottom" alt=""
+                                             src="image/view/3.2.png">
+                                        <img class="round_decorate_right_bottom" alt=""
+                                             src="image/view/4.1.png">
+                                        <!--<div class="round_hr round_border-top"></div>-->
+                                        <div class="round_hr round_border-right"></div>
+                                        <!--<div class="round_hr round_border-bottom"></div>-->
+                                        <div class="round_hr labour_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left_3">
+                                            <div class="trans-font">会员年龄比例</div>
+                                        </div>
+                                        <div class="content_echarts padding-siz-20">
+                                            <!-- 团指数统计图位置  -->
+                                            <div id="pie_labour_age" class="labour_bar_age cartogram_labour"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear-both"></div>
+                        <!-- 下部分 -->
+                        <div class="margin-top-vh-3">
+                            <div class="content_table col-xs-48" onclick="model_show_table(this,'labour_table','width1_7')">
+                                <!--<div class="border_Anmation"></div>-->
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png"
+                                                 style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png"
+                                                 style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                                 style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png"
+                                                 style="z-index:4;">
+                                        </div>
+                                        <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                        <img class="round_decorate_reght_1" alt="" src="image/view/2.2.png">
+                                        <img class="round_decorate_left_bottom" alt=""
+                                             src="image/view/3.1.png">
+                                        <img class="round_decorate_right_bottom" alt=""
+                                             src="image/view/4.png">
+                                        <div class="round_hr round_border-top"></div>
+                                        <div class="round_hr labour_border-right"></div>
+                                        <div class="round_hr round_border-bottom"></div>
+                                        <div class="round_hr round_border-left"></div>
+
+                                        <div style="" class="round_title">
+                                            <div class="trans-font">产业工会组织人数</div>
+                                        </div>
+                                        <div class="content_echarts padding-siz-20">
+                                            <!-- 团指数统计图位置  -->
+                                            <div id="labour_table_num"
+                                                 class="labour_table_num labour-table table_compre">
+                                                <table class="table " id="labour_table">
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_table col-xs-46 margin-left-b-3"  onclick="model_show_table(this,'labour_table_qu_num','width1_7')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png"
+                                                 style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png"
+                                                 style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                                 style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png"
+                                                 style="z-index:4;">
+                                        </div>
+                                        <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                        <img class="round_decorate_reght_1" alt="" src="image/view/2.2.png">
+                                        <img class="round_decorate_left_bottom" alt=""  src="image/view/3.1.png">
+                                        <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                                        <div class="round_hr round_border-top"></div>
+                                        <div class="round_hr labour_border-right"></div>
+                                        <div class="round_hr round_border-bottom"></div>
+                                        <div class="round_hr round_border-left"></div>
+
+                                        <div style="" class="round_title">
+                                            <div class="trans-font">区市县工会组织人数</div>
+                                        </div>
+                                        <div class="content_echarts padding-siz-20">
+                                            <!-- 团指数统计图位置  -->
+                                            <div class="labour_table_qu_num labour-table table_compre">
+                                                <table class="table " id="labour_table_qu_num">
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-46">
+                        <div class="content_table" onclick="model_show_map(this,'map_labour','all')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <!--<img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">-->
+                                        <!--<img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">-->
+                                        <!--<img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">-->
+                                        <!--<img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">-->
+                                    </div>
+
+                                    <img class="round-back-top" src="image/view/0.png"/>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght" alt="" src="image/view/2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">
+                                    <img class="round_decorate_right_bottom" alt=""
+                                         src="image/view/4.2.png">
+                                    <div class="round_hr labour_mar_border-top"></div>
+                                    <div class="round_hr labour_mar_border-right"></div>
+                                    <div class="round_hr labour_mar_border-bottom"></div>
+                                    <div class="round_hr round_border-left"></div>
+
+                                    <div style="" class="round_title_2">
+                                        <div class="trans-font">工会会员热力分布图</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="map_labour2" class="labour_map my_map2"></div>
+                                        <div id="map_labour" class="labour_map"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 运营数据 -->
+    <div class="content_element ">
+        <div class="commnet margin-top-100 trans-body" id="operateBody">
+            <div class="container container-fluid ">
+                <div class="commont-top col-xs-100 padding-right-none">
+                    <div class="col-xs-12">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+
+                                <div style="" class="round_title round_title_left_3">
+                                    <div class="trans-font">实时数据</div>
+                                </div>
+                                <div class="content_echarts padding-top-30 table_ul_menu">
+                                    <!-- 团指数统计图位置  -->
+                                    <div class="table_content_ul operate_table_ul">
+                                            <div class="li-table numberDiv2">
+                                                <div class="numberRun number1"></div>
+                                                <div class="numberTitle"><div class="trans-font">App下载量</div></div>
+                                            </div>
+                                            <div class="li-table numberDiv2">
+                                                <div class="numberRun number2"></div>
+                                                <div class="numberTitle"><div class="trans-font">App注册量</div></div>
+                                            </div>
+                                            <div class="li-table numberDiv2">
+                                                <div class="numberRun number3"></div>
+                                                <div class="numberTitle"><div class="trans-font">App实名量</div></div>
+                                            </div>
+                                            <div class="li-table numberDiv">
+                                                <div class="numberRun number4"></div>
+                                                <div class="numberTitle"><div class="trans-font">公众号关注量</div></div>
+                                            </div>
+                                            <div class="li-table numberDiv">
+                                                <div class="numberRun number5"></div>
+                                                <div class="numberTitle"><div class="trans-font">公众号阅读量</div></div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-34 margin-left-b-2">
+                        <div class="content_table" onclick="model_show_map(this,'operate_map','all')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <!--<img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">-->
+                                        <!--<img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">-->
+                                        <!--<img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">-->
+                                        <!--<img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">-->
+                                    </div>
+
+                                    <img class="round-back-top" src="image/view/0.png"/>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght" alt="" src="image/view/2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">
+                                    <img class="round_decorate_right_bottom" alt=""
+                                         src="image/view/4.2.png">
+                                    <div class="round_hr labour_mar_border-top"></div>
+                                    <div class="round_hr labour_mar_border-right"></div>
+                                    <div class="round_hr labour_mar_border-bottom"></div>
+                                    <div class="round_hr round_border-left"></div>
+
+                                    <div style="" class="round_title_2">
+                                        <div class="trans-font">工会会员热力分布图</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="operate_map2" class="operate_map my_map2"></div>
+                                        <div id="operate_map" class="operate_map"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-29 margin-left-b-1">
+                        <div class="content_table col-xs-100" onclick="model_show(this,'operate_app_down','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu_right">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                             style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png"
+                                             style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round-back-top" src="image/view/0.png"/>-->
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                    <!--<img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">-->
+                                    <img class="round_decorate_right_bottom" alt=""
+                                         src="image/view/4.3.png">
+                                    <img class="round_decorate_left_top" alt="" src="image/view/5.png">
+                                    <!--<div class="round_hr labour_mar_border-top"></div>-->
+                                    <div class="round_hr labour_mar_border-right"></div>
+                                    <div class="round_hr operate_border-bottom"></div>
+                                    <div class="round_hr operate_border-left"></div>
+
+                                    <div style="" class="round_title_right">
+                                        <div class="trans-font-right">App日下载量</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="operate_app_down" class="operate_app_down cartogram_operate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_table col-xs-100 margin-top-20" onclick="model_show(this,'operate_app_register','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu_right">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                             style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png"
+                                             style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round-back-top" src="image/view/0.png"/>-->
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                    <!--<img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">-->
+                                    <img class="round_decorate_right_bottom expend_right_bottom" alt=""
+                                         src="image/view/4.3.png">
+                                    <img class="round_decorate_left_top" alt="" src="image/view/5.png">
+                                    <!--<div class="round_hr labour_mar_border-top"></div>-->
+                                    <div class="round_hr labour_mar_border-right"></div>
+                                    <div class="round_hr operate_border-bottom"></div>
+                                    <div class="round_hr operate_border-left"></div>
+
+                                    <div style="" class="round_title_right">
+                                        <div class="trans-font-right">App注册量以及实名占比</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="operate_app_register" class="operate_app_register cartogram_operate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-19 margin-left-b-1">
+                        <div class="content_table" onclick="model_show_table(this,'operate_ranking_table','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu_right">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                             style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png"
+                                             style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round-back-top" src="image/view/0.png"/>-->
+                                    <img class="round_decorate_left" alt="" src="image/view/1.1.png">
+                                    <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                    <!--<img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">-->
+                                    <img class="round_decorate_right_bottom" alt=""
+                                         src="image/view/4.3.png">
+                                    <!--<div class="round_hr labour_mar_border-top"></div>-->
+                                    <div class="round_hr operate_border-right"></div>
+                                    <div class="round_hr operate_border-bottom"></div>
+                                    <div class="round_hr operate_border-left"></div>
+
+                                    <div style="" class="round_title_right">
+                                        <div class="trans-font-right">本期公众号优质推文排行榜</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div class="operate_ranking_table table_compre">
+                                            <table class="table" id="operate_ranking_table">
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_table col-xs-100 margin-top-20">
+                    <div class="content_table col-xs-20" onclick="model_show(this,'operate_follow_num','')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                         style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png"
+                                         style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.2.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">
+                                <!--<div class="round_hr round_border-top"></div>-->
+                                <div class="round_hr round_border-right"></div>
+                                <!--<div class="round_hr round_border-bottom"></div>-->
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left_1">
+                                    <div class="trans-font">公众号周关注人数及增长率</div>
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="operate_follow_num" class="operate_follow_num cartogram_operate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-20 margin-left-b-1-7" onclick="model_show(this,'line_operate_wechat_read','')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                         style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png"
+                                         style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.2.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">
+                                <!--<div class="round_hr round_border-top"></div>-->
+                                <div class="round_hr round_border-right"></div>
+                                <!--<div class="round_hr round_border-bottom"></div>-->
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left_1">
+                                   <div class="trans-font"> 公众号月度推文阅读/点赞数</div>
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="line_operate_wechat_read" class="operate_read_num cartogram_operate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-34 margin-left-b-1-7" onclick="model_show(this,'operate_user_active','')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                         style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png"
+                                         style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.2.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">
+                                <div class="round_hr round_border-top"></div>
+                                <div class="round_hr round_border-right"></div>
+                                <!--<div class="round_hr round_border-bottom"></div>-->
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left">
+                                    <div class="trans-font"> 会员活跃指数</div>
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="operate_user_active" class="operate_user_active cartogram_operate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-18 margin-left-b-1-7" onclick="model_show(this,'operate_staff_ranking','')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                         style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png"
+                                         style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.2.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">
+                                <!--<div class="round_hr round_border-top"></div>-->
+                                <div class="round_hr round_border-right"></div>
+                                <!--<div class="round_hr round_border-bottom"></div>-->
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left">
+                                    <div class="trans-font"> 成都职工排行榜</div>
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="operate_staff_ranking" class="operate_staff_ranking cartogram_operate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 公共服务数据 -->
+    <div class="content_element ">
+        <div class="commnet margin-top-100 trans-body" id="publicSerBody">
+
+            <div class="container container-fluid">
+
+                <div class="commont-top col-xs-100 padding-right-none">
+
+                    <div class="col-xs-100">
+                        <!-- 上部分 -->
+                        <div class="col-xs-12">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                    </div>
+
+                                    <div style="" class="round_title round_title_left_3">
+                                        <span class="trans-font">实时数据</span>
+                                    </div>
+                                    <div class="content_echarts padding-top-25 table_ul_menu">
+                                        <!-- 团指数统计图位置  -->
+                                        <div class="table_content_ul public_table_list">
+                                            <div class="li-table numberDiv3">
+                                                <div class="numberRun number1"></div>
+                                                <div class="numberTitle"><span class="trans-font">全市工会会员数</span></div>
+                                            </div>
+                                            <div class="li-table numberDiv3">
+                                                <div class="numberRun number2"></div>
+                                                <div class="numberTitle"><span class="trans-font">全市工会组织数</span></div>
+                                            </div>
+                                            <div class="li-table numberDiv3">
+                                                <div class="numberRun number3"></div>
+                                                <div class="numberTitle"><span class="trans-font">在线会员数</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="li-table public_round_table">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                    </div>
+                                    <div style="" class="round_title round_title_2">
+                                        <span class="trans-font">普惠大健康指数</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_table col-xs-48 margin-left-b-1" onclick="model_show(this,'bar_public_pay','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght round_decorate_reght_public1" alt="" src="image/view/2.2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.1.png">
+                                    <!--<img class="round_decorate_right_bottom" alt="" src="image/view/4.4.png">-->
+                                    <div class="round_hr round_border-top-public1"></div>
+                                    <div class="round_hr round_border-right-public1"></div>
+                                    <div class="round_hr round_border-bottom-public1"></div>
+                                    <div class="round_hr round_border-left-public1"></div>
+
+                                    <div style="" class="round_title round_title_left">
+                                        <span class="trans-font">水电气缴费额</span>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="bar_public_pay" class="public_bar_fei cartogram_public"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_table col-xs-34 margin-left-b-2" onclick="model_show(this,'line_public_fei','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght round_decorate_reght_public1" alt="" src="image/view/2.2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.1.png">
+                                    <!--<img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">-->
+                                    <div class="round_hr round_border-top-public1"></div>
+                                    <div class="round_hr round_border-right-public1"></div>
+                                    <div class="round_hr round_border-bottom-public1"></div>
+                                    <div class="round_hr round_border-left-public1"></div>
+
+                                    <div style="" class="round_title">
+                                        <span class="trans-font">话费</span>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="line_public_fei" class="public_line_fei cartogram_public"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear-both"></div>
+                    </div>
+                    <div class="col-xs-100 margin-top-20">
+                        <div class="public_season_comment col-xs-41 margin-left-b-2">
+                            <div class="col-xs-67 public_season_max">
+                                <div class="public_background_xia_da_s">
+                                    <h3 class="public_season_title">夏 <i>(6-8月)</i></h3>
+                                    <div class="season_title">夏天，四季中的第二个季节，是北半球一年中最热的季节，我国 习惯将立夏作为夏天的开始，气象学上的夏季要推迟到立夏后25 天左右。</div>
+                                    <span class="public_xia_hua"></span>
+                                </div>
+                                <div class="public_throttle public_background_xia_da_x">
+                                    <div class="public_disease">
+                                        <label class="progress-bar">
+                                            <span>热&nbsp; 伤&nbsp;风</span>
+                                            <ul class="loadbar">
+                                                <li class="bar layerFill1"></li>
+                                                <li class="bar layerFill2"></li>
+                                                <li class="bar layerFill3"></li>
+                                                <li class="bar layerFill4"></li>
+                                                <li class="bar layerFill5"></li>
+                                                <li class="bar layerFill6"></li>
+                                                <li class="bar layerFill7"></li>
+                                                <li class="bar layerFill8"></li>
+                                                <li class="bar layerFill9"></li>
+                                                <li class="bar layerFill10"></li>
+                                                <li class="bar layerFill11"></li>
+                                                <li class="bar layerFill12"></li>
+                                                <li class="bar layerFill13"></li>
+                                                <li class="bar layerFill14"></li>
+                                                <li class="bar layerFill15"></li>
+                                                <li class="bar layerFill16"></li>
+                                                <li class="bar layerFill17"></li>
+                                                <li class="bar layerFill18"></li>
+                                                <li class="bar layerFill19"></li>
+                                                <li class="bar layerFill20"></li>
+                                                <li class="bar layerFill21"></li>
+                                                <li class="bar layerFill22"></li>
+                                                <li class="bar layerFill23"></li>
+                                                <li class="bar layerFill24"></li>
+                                                <li class="bar layerFill25"></li>
+                                                <li class="bar layerFill26"></li>
+                                                <li class="bar layerFill27"></li>
+                                                <li class="bar layerFill28"></li>
+                                            </ul>
+                                            <span>80%</span>
+                                        </label>
+                                        <label class="progress-bar">
+                                            <span>肠胃疾病</span>
+                                            <ul class="loadbar">
+                                                <li class="bar layerFill1"></li>
+                                                <li class="bar layerFill2"></li>
+                                                <li class="bar layerFill3"></li>
+                                                <li class="bar layerFill4"></li>
+                                                <li class="bar layerFill5"></li>
+                                                <li class="bar layerFill6"></li>
+                                                <li class="bar layerFill7"></li>
+                                                <li class="bar layerFill8"></li>
+                                                <li class="bar layerFill9"></li>
+                                                <li class="bar layerFill10"></li>
+                                                <li class="bar layerFill11"></li>
+                                                <li class="bar layerFill12"></li>
+                                                <li class="bar layerFill13"></li>
+                                                <li class="bar layerFill14"></li>
+                                                <li class="bar layerFill15"></li>
+                                                <li class="bar layerFill16"></li>
+                                                <li class="bar layerFill17"></li>
+                                                <li class="bar layerFill18"></li>
+                                                <li class="bar layerFill19"></li>
+                                                <li class="bar layerFill20"></li>
+                                                <li class="bar layerFill21"></li>
+                                                <li class="bar layerFill22"></li>
+                                                <li class="bar layerFill23"></li>
+                                                <li class="bar layerFill24"></li>
+                                                <li class="bar layerFill25"></li>
+                                                <li class="bar layerFill26"></li>
+                                                <li class="bar layerFill27"></li>
+                                                <li class="bar layerFill28"></li>
+                                            </ul>
+                                            <span>70%</span>
+                                        </label>
+                                        <label class="progress-bar">
+                                            <span>皮&nbsp; 肤&nbsp;病</span>
+                                            <ul class="loadbar">
+                                                <li class="bar layerFill1"></li>
+                                                <li class="bar layerFill2"></li>
+                                                <li class="bar layerFill3"></li>
+                                                <li class="bar layerFill4"></li>
+                                                <li class="bar layerFill5"></li>
+                                                <li class="bar layerFill6"></li>
+                                                <li class="bar layerFill7"></li>
+                                                <li class="bar layerFill8"></li>
+                                                <li class="bar layerFill9"></li>
+                                                <li class="bar layerFill10"></li>
+                                                <li class="bar layerFill11"></li>
+                                                <li class="bar layerFill12"></li>
+                                                <li class="bar layerFill13"></li>
+                                                <li class="bar layerFill14"></li>
+                                                <li class="bar layerFill15"></li>
+                                                <li class="bar layerFill16"></li>
+                                                <li class="bar layerFill17"></li>
+                                                <li class="bar layerFill18"></li>
+                                                <li class="bar layerFill19"></li>
+                                                <li class="bar layerFill20"></li>
+                                                <li class="bar layerFill21"></li>
+                                                <li class="bar layerFill22"></li>
+                                                <li class="bar layerFill23"></li>
+                                                <li class="bar layerFill24"></li>
+                                                <li class="bar layerFill25"></li>
+                                                <li class="bar layerFill26"></li>
+                                                <li class="bar layerFill27"></li>
+                                                <li class="bar layerFill28"></li>
+                                            </ul>
+                                            <span>60%</span>
+                                        </label>
+                                    </div>
+                                    <div class="throttle-title"><img src="image/view/public_yuan.png"/><span>相关节气</span></div>
+                                    <div class="throttle_comment">
+                                        <ul class="throttle-ul">
+                                            <li><span class="li-name">立夏</span><span class="li-commet">太阳位于黄经45度，5月5-7日交节</span></li>
+                                            <li><span class="li-name">小满</span><span class="li-commet">太阳位于黄经45度，5月5-7日交节</span></li>
+                                            <li><span class="li-name">芒种</span><span class="li-commet">太阳位于黄经45度，5月5-7日交节</span></li>
+                                            <li><span class="li-name">夏至</span><span class="li-commet">太阳位于黄经45度，5月5-7日交节</span></li>
+                                            <li><span class="li-name">大暑</span><span class="li-commet">太阳位于黄经45度，5月5-7日交节</span></li>
+                                            <li><span class="li-name">小暑</span><span class="li-commet">太阳位于黄经45度，5月5-7日交节</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-10"></div>
+                            <div class="col-xs-28 public_season_min">
+                                <div class="public_season_chun">
+                                    <label class="progress-bar">
+                                        <span>过敏性鼻炎</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                    <label class="progress-bar">
+                                        <span>急性胃溃疡</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                    <label class="progress-bar">
+                                        <span>心 理 疾 病</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                </div>
+
+                                <!--<div class="public_season_xia"></div>-->
+                                <div class="public_season_qiu">
+                                    <label class="progress-bar">
+                                        <span>心脑血管病</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                    <label class="progress-bar">
+                                        <span>心 理 疾 病</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                    <label class="progress-bar">
+                                        <span>心 理 疾 病</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+
+                                </div>
+                                <div class="public_season_dong">
+                                    <label class="progress-bar">
+                                        <span>心 理 疾 病</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                    <label class="progress-bar">
+                                        <span>心 理 疾 病</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                    <label class="progress-bar">
+                                        <span>心 理 疾 病</span>
+                                        <ul class="loadbar">
+                                            <li class="bar layerFill1"></li>
+                                            <li class="bar layerFill2"></li>
+                                            <li class="bar layerFill3"></li>
+                                            <li class="bar layerFill4"></li>
+                                            <li class="bar layerFill5"></li>
+                                            <li class="bar layerFill6"></li>
+                                            <li class="bar layerFill7"></li>
+                                            <li class="bar layerFill8"></li>
+                                            <li class="bar layerFill9"></li>
+                                            <li class="bar layerFill0"></li>
+                                        </ul>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_table col-xs-16 margin-left-b-1-7">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                    </div>
+
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght round_decorate_reght_public1" alt="" src="image/view/2.3.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.1.png">
+                                    <!--<img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">-->
+                                    <div class="round_hr round_border-top-public2"></div>
+                                    <div class="round_hr round_border-right-public1"></div>
+                                    <div class="round_hr round_border-bottom-public1"></div>
+                                    <div class="round_hr round_border-left-public1"></div>
+
+                                    <div style="" class="round_title round_title_left_3">
+                                        <span class="trans-font"> 公积金查询</span>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="public_fund" class="public_fund">
+
+                                            <div class="public_fund_pay_num public_fund_back">
+                                                <div class="numberRun number1"></div>
+                                                <div class="fund_name"><span class="trans-font">在线人次</span></div>
+                                            </div>
+                                            <div class="public_fund_query_num public_fund_back">
+                                                <div class="numberRun number2"></div>
+                                                <div class="fund_name"><span class="trans-font">查询人次</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_table col-xs-34 margin-left-b-2" onclick="model_show(this,'line_public_peccancy','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                    </div>
+
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght round_decorate_reght_public1" alt="" src="image/view/2.2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.1.png">
+                                    <!--<img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">-->
+                                    <div class="round_hr round_border-top-public1"></div>
+                                    <div class="round_hr round_border-right-public1"></div>
+                                    <div class="round_hr round_border-bottom-public1"></div>
+                                    <div class="round_hr round_border-left-public1"></div>
+
+                                    <div style="" class="round_title round_title_left_3">
+                                      <span class="trans-font">违章处理</span>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="line_public_peccancy" class="public_peccancy cartogram_public"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 福利数据 -->
+    <div class="content_element ">
+        <div class="commnet margin-top-100 trans-body" id="welfareBody">
+            <div class="container container-fluid ">
+                <div class="commont-top col-xs-100 padding-right-none ">
+                    <div class="col-xs-12">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+
+                                <div style="" class="round_title">
+                                    <div class="trans-font">实时数据</div>
+                                </div>
+                                <div class="content_echarts real-time-data padding-top-30 table_ul_menu">
+                                    <!-- 团指数统计图位置  -->
+                                    <div class="table_content_ul welfare_table_ul">
+                                        <div class="li-table numberDiv4">
+                                            <div class="numberRun number1"></div>
+                                            <div class="numberTitle"><div class="trans-font">工会券发放总额</div></div>
+                                        </div>
+                                        <div class="li-table numberDiv4">
+                                            <div class="numberRun number2"></div>
+                                            <div class="numberTitle"><div class="trans-font">惠普总人数</div></div>
+                                        </div>
+                                        <div class="li-table numberDiv4">
+                                            <div class="numberRun number3"></div>
+                                            <div class="numberTitle"><div class="trans-font">劳模工匠人数</div></div>
+                                        </div>
+                                        <div class="li-table numberDiv4">
+                                            <div class="numberRun number4"></div>
+                                            <div class="numberTitle"><div class="trans-font">被慰问职工人数</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle-interm col-xs-53 margin-left-1-5">
+                        <div class="content_table col-xs-55 model_item"  onclick="model_show(this,'line_up','single2')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu_right">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                             style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png"
+                                             style="z-index:4;">
+                                    </div>
+                                    <img class="round_decorate_left_top" src="image/view/0.1.png"/>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght" alt="" src="image/view/2.1.png">
+                                    <!--<img class="round_decorate_left_bottom" alt="" src="image/view/3.png">-->
+                                    <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                                    <div class="round_hr round_border-top"></div>
+                                    <div class="round_hr round_border-right"></div>
+                                    <div class="round_hr round_border-bottom-welfare1"></div>
+                                    <div class="round_hr round_border-left-welfare1"></div>
+
+                                    <div style="" class="round_title_right">
+                                        <div class="trans-font">每月工会福利发放及使用情况</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="line_up" class="welfare-data cartogram_welfare"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-38 margin-left-b-5 model_item" onclick="model_show(this,'pie_app','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                             style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png"
+                                             style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <!--<img class="round_decorate_reght" alt="" src="image/view/2.1.png">-->
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.7.png">
+                                    <img class="round_decorate_right_bottom round_decorate_right_welfare1" alt="" src="image/view/4.6.png">
+                                    <div class="round_hr round_border-top"></div>
+                                    <div class="round_hr round_border-right_welfare1"></div>
+                                    <!--<div class="round_hr round_border-bottom"></div>-->
+                                    <div class="round_hr round_border-left"></div>
+
+                                    <div style="" class="round_title round_title_left">
+                                        <div class="trans-font">劳模工匠APP使用情况</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="pie_app" class="pie-app cartogram_welfare"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-100 margin-top-vh-2 model_item" id="target_model_box_two">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu_right">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                             style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png"
+                                             style="z-index:4;">
+                                    </div>
+                                    <img class="round_decorate_left_top" src="image/view/0.2.png"/>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <!--<img class="round_decorate_reght" alt="" src="image/view/2.1.png">-->
+                                    <!--<img class="round_decorate_left_bottom" alt="" src="image/view/3.png">-->
+                                    <img class="round_decorate_right_bottom" alt="" src="image/view/4.3.png">
+                                    <div class="round_hr round_border-top-welfare1"></div>
+                                    <!--<div class="round_hr round_border-right"></div>-->
+                                    <div class="round_hr round_border-bottom-welfare1"></div>
+                                    <div class="round_hr round_border-left-welfare1"></div>
+
+                                    <div style="" class="round_title round_title_right round_title_right-1">
+                                        <div class="trans-font">院线观影活动</div>
+                                    </div>
+                                    <div class="content_echarts line_cinema col-xs-100">
+                                        <!-- 团指数统计图位置  -->
+                                        <div class="col-xs-50">
+                                            <div id="line_cinema_ren" class="line_cinema_ren cartogram_welfare" onclick="model_show_single(this,'target_model_box_two','line_cinema_ren','single')"></div>
+                                        </div>
+                                        <div class="col-xs-50">
+                                            <div id="line_cinema_chang" class="line_cinema_chang cartogram_welfare" onclick="model_show_single(this,'target_model_box_two','line_cinema_chang','single')"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-30 margin-left-1-5 model_item" onclick="model_show_map(this,'map_chengdu','all')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div">
+                                <<!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <!--<img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">-->
+                                    <!--<img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">-->
+                                    <!--<img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">-->
+                                    <!--<img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">-->
+                                </div>
+                                <img class="round-back-top" src="image/view/0.png"/>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.png">-->
+                                <img class="round_decorate_reght" alt="" src="image/view/2.png">
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.2.png">
+                                <div class="round_hr labour_mar_border-top"></div>
+                                <div class="round_hr labour_mar_border-right"></div>
+                                <div class="round_hr labour_mar_border-bottom"></div>
+                                <div class="round_hr round_border-left"></div>
+
+                                <div style="" class="round_title_2 round_title_left_1">
+                                    <div class="trans-font">成都市劳模工匠热力分布图</div>
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div class="map_fuli_chengdu my_map2" id="map_chengdu2"></div>
+                                    <div class="map_fuli_chengdu" id="map_chengdu"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content_table col-xs-100 margin-top-20" id="target_model_box_bottom">
+                    <div class="border_Anmation"></div>
+                    <div class="comment-div  margin-right-none">
+                        <div class="round_p_div">
+                            <!--圆圈转动部分-->
+                            <div class="round_menu">
+                                <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                            </div>
+
+                            <img class="round_decorate_center_top" src="image/view/0.3.png"/>
+                            <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                            <!--<img class="round_decorate_reght" alt="" src="image/view/2.1.png">-->
+                            <img class="round_decorate_left_bottom" alt="" src="image/view/3.8.png">
+                            <img class="round_decorate_right_bottom" alt="" src="image/view/4.png">
+                            <div class="round_hr round_border-top-welfare2"></div>
+                            <div class="round_hr round_border-right"></div>
+                            <div class="round_hr round_border-bottom"></div>
+                            <div class="round_hr round_border-left"></div>
+
+                            <div style="" class="round_title">
+                                <div class="trans-font">医疗</div>
+                            </div>
+                            <div class="content_echarts medical-div col-xs-100">
+                                <!-- 团指数统计图位置  -->
+                                <!--医疗-->
+                                <div class="line_medical cartogram_welfare" id="line_medical" onclick="model_show_single(this,'target_model_box_bottom','line_medical','single')"></div>
+                                <div class="bar_reserve_tran cartogram_welfare" id="bar_reserve_tran" onclick="model_show_single(this,'target_model_box_bottom','bar_reserve_tran','single2')"></div>
+                                <div class="pie_peril cartogram_welfare" id="pie_peril" onclick="model_show_single(this,'target_model_box_bottom','pie_peril','single')"></div>
+                                <div class="pie_percentage cartogram_welfare" id="pie_percentage" onclick="model_show_single(this,'target_model_box_bottom','pie_percentage','single')"></div>
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 消费数据 -->
+    <div class="content_element ">
+        <div class="commnet margin-top-100 trans-body" id="expendBody">
+
+            <div class="container container-fluid ">
+
+                <div class="commont-top col-xs-100 padding-right-none">
+                    <div class="col-xs-11">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+
+                                <div style="" class="round_title">
+                                    实时数据
+                                </div>
+                                <div class="content_echarts padding-top-30 table_ul_menu">
+                                    <!-- 团指数统计图位置  -->
+                                    <div class="table_content_ul expend_table_list">
+                                        <div class="li-table numberDiv2">
+                                            <div class="numberRun number1"></div>
+                                            <div class="numberTitle"><span class="trans-font">消费总额</span></div>
+                                        </div>
+                                        <div class="li-table numberDiv2">
+                                            <div class="numberRun number2"></div>
+                                            <div class="numberTitle"><span class="trans-font">线上消费总额</span></div>
+                                        </div>
+                                        <div class="li-table numberDiv2">
+                                            <div class="numberRun number3"></div>
+                                            <div class="numberTitle"><span class="trans-font">线下消费总额</span></div>
+                                        </div>
+                                        <div class="li-table numberDiv">
+                                            <div class="numberRun number4"></div>
+                                            <div class="numberTitle"><span class="trans-font">工会劵消费总额</span></div>
+                                        </div>
+                                        <div class="li-table numberDiv">
+                                            <div class="numberRun number5"></div>
+                                            <div class="numberTitle"><span class="trans-font">团购消费总额</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-21 margin-left-b-2">
+                        <div class="content_table" onclick="model_show_map(this,'map_expend','all')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <!--<img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">-->
+                                        <!--<img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">-->
+                                        <!--<img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">-->
+                                        <!--<img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">-->
+                                    </div>
+
+                                    <img class="round-back-top" src="image/view/0.png"/>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <img class="round_decorate_reght" alt="" src="image/view/2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">
+                                    <img class="round_decorate_right_bottom" alt="" src="image/view/4.2.png">
+                                    <div class="round_hr labour_mar_border-top"></div>
+                                    <div class="round_hr labour_mar_border-right"></div>
+                                    <div class="round_hr labour_mar_border-bottom"></div>
+                                    <div class="round_hr round_border-left"></div>
+
+                                    <div style="" class="round_title_2">
+                                        <span class="trans-font">消费区热力图</span>
+                                    </div>
+                                    <div class="content_echarts padding-siz-10">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="map_expend2" class="expend_map my_map"></div>
+                                        <div id="map_expend" class="expend_map"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-24 margin-left-b-1-7">
+                        <div class="content_table" onclick="model_show(this,'expend_consumption_count','')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.2.png">
+                                    <img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">
+                                    <div class="round_hr round_border-top"></div>
+                                    <div class="round_hr round_border-right"></div>
+                                    <!--<div class="round_hr round_border-bottom"></div>-->
+                                    <div class="round_hr labour_border-left"></div>
+
+                                    <div style="" class="round_title round_title_left">
+                                        <span class="trans-font">用户消费情况</span>
+                                    </div>
+                                    <div class="content_echarts padding-bottom-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="expend_consumption_count" class="expend_user cartogram_expend"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-36 margin-left-b-1-7" id="target_model_box_expend_rightup">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.2.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.1.png">
+                                <div class="round_hr round_border-top"></div>
+                                <div class="round_hr round_border-right"></div>
+                                <!--<div class="round_hr round_border-bottom"></div>-->
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left_3">
+                                    团购指数
+                                </div>
+                                <div class="content_echarts padding-siz-10">
+                                    <!-- 团指数统计图位置  -->
+                                    <div  class="expend_purchase">
+                                        <div id="pei_expend_purchase" class="pei_expend_purchase col-xs-31 cartogram_expend" onclick="model_show_single(this,'target_model_box_expend_rightup','pei_expend_purchase','single')"></div>
+                                        <div id="line_expend_purchase" class="line_expend_purchase col-xs-67 cartogram_expend" onclick="model_show_single(this,'target_model_box_expend_rightup','line_expend_purchase','single')"></div>
+                                        <div class="clear-both"></div>
+                                        <div id="bar_expend_purchase" class="bar_expend_purchase col-xs-100 cartogram_expend" onclick="model_show_single(this,'target_model_box_expend_rightup','bar_expend_purchase','single')"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content_table col-xs-100 margin-top-20">
+                    <div class="content_table col-xs-20" onclick="model_show_normal(this,'table_expend_upper_shop','uppershop')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom expend_left_bottom" alt="" src="image/view/3.4.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.4.png">
+                                <!--<img class="round_decorate_left_top" alt="" src="image/view/5.png">-->
+                                <img class="round_decorate_right_top" alt="" src="image/view/6.1.png">
+                                <!--<div class="round_hr round_border-top"></div>-->
+                                <div class="round_hr round_border-right"></div>
+                                <!--<div class="round_hr round_border-bottom"></div>-->
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left_2">
+                                    本月优秀线上店铺 TOP5
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="table_expend_upper_shop" class="expend_upper_shop">
+                                        <table class="upper_shop_bar_table">
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-17 margin-left-b-1-7" onclick="model_show(this,'pei_expend_upper_product','')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom expend_left_bottom" alt="" src="image/view/3.4.png">
+                                <img class="round_decorate_right_bottom expend_right_bottom" alt="" src="image/view/4.4.png">
+                                <!--<img class="round_decorate_left_top" alt="" src="image/view/5.png">-->
+                                <img class="round_decorate_right_top" alt="" src="image/view/6.1.png">
+                                <!--<div class="round_hr round_border-top"></div>-->
+                                <div class="round_hr round_border-right"></div>
+                                <!--<div class="round_hr round_border-bottom"></div>-->
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left_1 trans-font">
+                                    热门线上消费产品
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="pei_expend_upper_product" class="expend_upper_product cartogram_expend"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-22 margin-left-b-1-7" onclick="model_show_normal(this,'bar_expend_under_shop','undershop')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.5.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.5.png">
+                                <!--<img class="round_decorate_left_top" alt="" src="image/view/5.png">-->
+                                <img class="round_decorate_right_top" alt="" src="image/view/6.2.png">
+                                <!--<div class="round_hr round_border-top"></div>-->
+                                <div class="round_hr round_border-right"></div>
+                                <div class="round_hr expend_border-bottom"></div>
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left">
+                                    本月优秀线下店铺 TOP10
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="bar_expend_under_shop" class="expend_under_shop">
+                                        <table class="bar_expend_shop_table">
+                                            <!--<tr>-->
+                                            <!--<td><span class="bar-title">红旗（贝森路）</span></td>-->
+                                            <!--<td class="progress-bar">-->
+                                            <!--<ul class="loadbar">-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1 ins"></li>-->
+                                            <!--<li class="bar layerFill1"></li>-->
+                                            <!--<li class="bar layerFill1"></li>-->
+                                            <!--<li class="bar layerFill1"></li>-->
+                                            <!--<li class="bar layerFill1"></li>-->
+                                            <!--<li class="bar layerFill1"></li>-->
+                                            <!--<li class="bar layerFill1"></li>-->
+                                            <!--</ul>-->
+                                            <!--</td>-->
+                                            <!--<td><span class="bar-footer-name">120单</span></td>-->
+                                            <!--</tr>-->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-17 margin-left-b-1-7" onclick="model_show(this,'pei_expend_business','')">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.5.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.5.png">
+                                <!--<img class="round_decorate_left_top" alt="" src="image/view/5.png">-->
+                                <img class="round_decorate_right_top" alt="" src="image/view/6.2.png">
+                                <!--<div class="round_hr round_border-top"></div>-->
+                                <div class="round_hr round_border-right"></div>
+                                <div class="round_hr expend_border-bottom"></div>
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title round_title_left_3">
+                                    本月活跃商家
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="pei_expend_business" class="expend_business cartogram_expend"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_table col-xs-14 margin-left-b-1-7">
+                        <div class="border_Anmation"></div>
+                        <div class="comment-div  margin-right-none">
+                            <div class="round_p_div ">
+                                <!--圆圈转动部分-->
+                                <div class="round_menu">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                <img class="round_decorate_left_bottom" alt="" src="image/view/3.5.png">
+                                <img class="round_decorate_right_bottom" alt="" src="image/view/4.5.png">
+                                <!--<img class="round_decorate_left_top" alt="" src="image/view/5.png">-->
+                                <img class="round_decorate_right_top" alt="" src="image/view/6.2.png">
+                                <div class="round_hr round_border-top"></div>
+                                <div class="round_hr round_border-right"></div>
+                                <div class="round_hr expend_border-bottom"></div>
+                                <div class="round_hr labour_border-left"></div>
+
+                                <div style="" class="round_title">
+                                    机票
+                                </div>
+                                <div class="content_echarts padding-siz-20">
+                                    <!-- 团指数统计图位置  -->
+                                    <div id="expend_plane_ticket" class="expend_plane_ticket">
+                                        <div class="expend-ticket-1 expend-ticket">
+                                            <div class="numberRun">922001</div>
+                                            <div class="ticket-name">机票预定总订单数</div>
+                                        </div>
+                                        <div class="expend-ticket-2 expend-ticket">
+                                            <div class="numberRun">99</div>
+                                            <div class="ticket-name">航线数</div>
+                                        </div>
+                                        <div class="expend-ticket-3 expend-ticket">
+                                            <div class="numberRun">成都 - 北京</div>
+                                            <div class="ticket-name">预定频次最高航班</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 实况数据 -->
+    <div class="content_element ">
+        <div class="commnet margin-top-100 trans-body" id="liveBody">
+            <div class="container container-fluid ">
+                <div class="commont-top col-xs-100">
+                    <div class="col-xs-62">
+                        <div class="content_table col-xs-100">
+                            <div class="round_p_div">
+                                <div class="round_menu index-roll">
+                                    <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                    <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                    <img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">
+                                    <img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">
+                                </div>
+                                <div class="round_title index-roll-title">
+                                    <div class="trans-font">数据总览</div>
+                                </div>
+
+                                <div class=" ">
+                                    <!-- 实时数据统计图位置 -->
+                                    <div class="table_content_ul live_table_ul ">
+                                            <div class="li-table numberDiv2">
+                                                <div class="numberRun number1"></div>
+                                                <div class="numberTitle"><div
+                                                        class="trans-font">举办活动数</div></div>
+                                            </div>
+                                            <div class="li-table numberDiv2">
+                                                <div class="numberRun number2"></div>
+                                                <div class="numberTitle"><div
+                                                        class="trans-font">参与人数</div></div>
+                                            </div>
+                                            <div class="li-table numberDiv2">
+                                                <div class="numberRun number3"></div>
+                                                <div class="numberTitle"><div
+                                                        class="trans-font">本月活动场次</div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_table col-xs-100  margin-top-b-2">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <!--<img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">-->
+                                        <!--<img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">-->
+                                        <!--<img class="image2 pointer" alt="" src="image/yuan6.png" style="z-index:3;">-->
+                                        <!--<img class="image2 circle" alt="" src="image/yuan2.png" style="z-index:4;">-->
+                                    </div>
+                                    <img class="round-back-top" src="image/view/0.png"/>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.png">-->
+                                    <img class="round_decorate_reght" alt="" src="image/view/2.png">
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.3.png">
+                                    <img class="round_decorate_right_bottom" alt=""
+                                         src="image/view/4.2.png">
+                                    <div class="round_hr labour_mar_border-top"></div>
+                                    <div class="round_hr labour_mar_border-right"></div>
+                                    <div class="round_hr labour_mar_border-bottom"></div>
+                                    <div class="round_hr round_border-left"></div>
+
+                                    <img class="round_img-bottom" src="image/b-7.png">
+                                    <div class="round_img_decorate-div-action">
+                                        <img class="round_img_decorate circle" src="image/b-12.png">
+                                        <img class="round_img_decorate" src="image/b-2.png">
+                                        <img class="round_img_decorate" src="image/b-3.png">
+                                        <img class="round_img_decorate circle" src="image/b-15.png">
+                                        <img class="round_img_decorate round_img_decorate-button"
+                                             id="action_video"
+                                             src="image/b-8.png">
+                                    </div>
+                                    <div class="round_img_decorate-div-pause">
+                                        <img class="round_img_decorate circle" src="image/b-12.png">
+                                        <img class="round_img_decorate" src="image/b-2.png">
+                                        <img class="round_img_decorate" src="image/b-3.png">
+                                        <img class="round_img_decorate circle" src="image/b-15.png">
+                                        <img class="round_img_decorate round_img_decorate-button" id="pause_video"
+                                             src="image/b-9.png">
+                                    </div>
+
+                                    <div style="" class="round_title_2">
+                                        <div class="trans-font">实况转播</div>
+                                    </div>
+                                    <div class="content_echarts live_content">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id="live_video" class="live_video"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-34 margin-left-b-2">
+                        <div class="col-xs-100">
+                            <div class="content_table" onclick="model_show(this,'line_live_count','')">
+                                <div class="border_Anmation"></div>
+                                <div class="comment-div  margin-right-none">
+                                    <div class="round_p_div ">
+                                        <!--圆圈转动部分-->
+                                        <div class="round_menu">
+                                            <img class="image1" alt="" src="image/yuan1.png"
+                                                 style="z-index:1;">
+                                            <img class="image2" alt="" src="image/yuan4.png"
+                                                 style="z-index:2;">
+                                            <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                                 style="z-index:3;">
+                                            <img class="image2 circle" alt="" src="image/yuan2.png"
+                                                 style="z-index:4;">
+                                        </div>
+                                        <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                        <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                        <img class="round_decorate_left_bottom" alt=""
+                                             src="image/view/3.2.png">
+                                        <img class="round_decorate_right_bottom" alt=""
+                                             src="image/view/4.1.png">
+                                        <div class="round_hr round_border-top"></div>
+                                        <div class="round_hr round_border-right"></div>
+                                        <!--<div class="round_hr round_border-bottom"></div>-->
+                                        <div class="round_hr labour_border-left"></div>
+
+                                        <div style="" class="round_title round_title_left">
+                                            <div class="trans-font">活动活跃指数</div>
+                                        </div>
+                                        <div class="content_echarts padding-siz-20">
+                                            <!-- 团指数统计图位置  -->
+                                            <div id="line_live_count" class="live_activity cartogram_lineLive"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_table col-xs-100 margin-top-30" onclick="model_show_table(this,'live_rankings','expend')">
+                            <div class="border_Anmation"></div>
+                            <div class="comment-div  margin-right-none">
+                                <div class="round_p_div ">
+                                    <!--圆圈转动部分-->
+                                    <div class="round_menu">
+                                        <img class="image1" alt="" src="image/yuan1.png" style="z-index:1;">
+                                        <img class="image2" alt="" src="image/yuan4.png" style="z-index:2;">
+                                        <img class="image2 pointer" alt="" src="image/yuan6.png"
+                                             style="z-index:3;">
+                                        <img class="image2 circle" alt="" src="image/yuan2.png"
+                                             style="z-index:4;">
+                                    </div>
+                                    <!--<img class="round_decorate_left" alt="" src="image/view/1.1.png">-->
+                                    <!--<img class="round_decorate_reght" alt="" src="image/view/2.png">-->
+                                    <img class="round_decorate_left_bottom" alt="" src="image/view/3.2.png">
+                                    <img class="round_decorate_right_bottom" alt=""
+                                         src="image/view/4.1.png">
+                                    <div class="round_hr round_border-top"></div>
+                                    <div class="round_hr round_border-right"></div>
+                                    <!--<div class="round_hr round_border-bottom"></div>-->
+                                    <div class="round_hr labour_border-left"></div>
+
+                                    <div style="" class="round_title round_title_left">
+                                        <div class="trans-font">优质活动排行榜</div>
+                                    </div>
+                                    <div class="content_echarts padding-siz-20">
+                                        <!-- 团指数统计图位置  -->
+                                        <div id=""
+                                             class="live_rankings labour-table table_compre">
+                                            <table id="live_rankings" class="table"></table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 分页 END -->
+</div>
+</div>
+<!-- 全局图 -->
+<div class="model_view" id="model_view" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+<canvas id="canvas" width="1920" height="1080" style="position: absolute;left: 0;top: 0;z-index: -1"></canvas>
+</body>
+<!--echarts 相关css js -->
+<script type="text/javascript" src="js/echarts/echarts2.min.js"></script>
+<script type="text/javascript" src="js/echarts/echarts-config.js"></script>
+<script type="text/javascript" src="js/effects.js"></script>
+<script src="js/effects/splitScreen.js" type="text/javascript"></script>
+<script src="js/number.js" type="text/javascript"></script>
+<script src="js/effects/background.js" type="text/javascript"></script>
+<script src="js/model_show.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/echarts/common.js"></script>
+<!--table数据整合-->
+<script type="text/javascript" src="js/echarts/table_compre.js"></script>
+<!-- 主页 -->
+<script type="text/javascript" src="js/echarts/map_json.js"></script>
+<script src="js/echarts/index/bar_app_wechat.js" type="text/javascript"></script>
+<script src="js/echarts/index/line_welfare_people.js" type="text/javascript"></script>
+<script src="js/echarts/index/line_index_public_count.js" type="text/javascript"></script>
+<script src="js/echarts/index/line_active_count.js" type="text/javascript"></script>
+<script src="js/echarts/index/bar_consumption_count.js" type="text/javascript"></script>
+<!-- 工会数据 -->
+<script src="js/echarts/labour/pie_sex.js" type="text/javascript"></script>
+<script src="js/echarts/labour/pie_age.js" type="text/javascript"></script>
+<!-- 公告服务数据 -->
+<script type="text/javascript" src="js/echarts/publicSer/bar_public_pay.js"></script>
+<script type="text/javascript" src="js/echarts/publicSer/line_public_fei.js"></script>
+<script type="text/javascript" src="js/echarts/publicSer/line_public_peccancy.js"></script>
+<!-- 运营数据 -->
+<script src="js/echarts/operate/bar_app_ios_android.js" type="text/javascript"></script>
+<script src="js/echarts/operate/line_operate_register.js" type="text/javascript"></script>
+<script src="js/echarts/operate/line_operate_wechat.js" type="text/javascript"></script>
+<script src="js/echarts/operate/line_operate_wechat_read.js" type="text/javascript"></script>
+<script src="js/echarts/operate/line_operate_user_active.js" type="text/javascript"></script>
+<script src="js/echarts/operate/bar_staff_ranking.js" type="text/javascript"></script>
+<!-- 福利数据 -->
+<script src="js/echarts/welfare/line_up.js" type="text/javascript"></script>
+<script src="js/echarts/welfare/pie_app.js" type="text/javascript"></script>
+<script src="js/echarts/welfare/line_cinema.js" type="text/javascript"></script>
+<script src="js/echarts/welfare/line_medical.js" type="text/javascript"></script>
+<script src="js/echarts/welfare/bar_reserve_tran.js" type="text/javascript"></script>
+<script src="js/echarts/welfare/pie_peril.js" type="text/javascript"></script>
+<script src="js/echarts/welfare/pie_percentage.js" type="text/javascript"></script>
+<!-- 消费数据 -->
+<script type="text/javascript" src="js/echarts/expend/bar_expend_purchase.js"></script>
+<script type="text/javascript" src="js/echarts/expend/pei_expend_purchase.js"></script>
+<script type="text/javascript" src="js/echarts/expend/line_expend_purchase.js"></script>
+<script type="text/javascript" src="js/echarts/expend/pei_expend_business.js"></script>
+<script type="text/javascript" src="js/echarts/expend/bar_expend_under_shop.js"></script>
+<script type="text/javascript" src="js/echarts/expend/pei_expend_upper_product.js"></script>
+<script type="text/javascript" src="js/echarts/expend/table_expend_upper_shop.js"></script>
+<script type="text/javascript" src="js/echarts/expend/pei_expend_ticket.js"></script>
+<!-- 实况数据 -->
+<script src="js/echarts/live/line_live_count.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/ckplayer/ckplayer.js"></script>
+
+
+<script type="text/javascript" src="js/echarts/labour/labour_table.js"></script>
+<script type="text/javascript" src="js/echarts/operate/oparate_table.js"></script>
+<script type="text/javascript" src="js/echarts/live/live_table.js"></script>
+<script type="text/javascript" src="js/ckplayer/live_video.js"></script>
+<!---->
+<script src="js/echarts/cartogramManager.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // $('#loading').modal();
+    //
+    document.addEventListener("DOMContentLoaded",function () {
+        $("#indexHtml").show();
+        loading();
+    });
+    /**
+     * loading 动画界面
+     */
+    var loading_per = -90;
+    var loading_number = -5;
+    var intervalNum = 0;
+    var speedTime = 30;
+    var isLoading = false;
+    var loading_per_obj = $("#loading_per");
+    var loading_number_obj = $("#loading_number");
+    var number = 0;
+    var speedInterval = 1;
+    var loadingInterval = setInterval(function () {
+        if(!isLoading){
+            if (intervalNum>=20&&intervalNum<=30||intervalNum>=70&&intervalNum<=90){
+                intervalNum++;
+                return;
+            }
+        }else{
+            speedInterval+=5;
+        }
+        $(loading_per_obj).css("marginLeft",loading_per+"%");
+        $(loading_number_obj).css("marginLeft",loading_number+"%");
+        number = parseInt(100-loading_per/-90 * 100);
+        if (isLoading){
+            if (number>=99){
+                clearInterval(loadingInterval);
+                $("#indexHtml").css("opacity","1");
+                $(".loading").hide();
+                return;
+            }
+        }
+        if (!isLoading&&number>=92){
+        }else {
+            $(loading_number_obj).html(number+"%");
+            loading_per +=speedInterval;
+            loading_number +=speedInterval;
+        }
+        intervalNum++;
+    },speedTime);
+
+
+    window.onload = function(){
+        //用于地址栏当前存在 坐标参数的刷新
+        $(".screen-botton").click();
+        setTimeout(function () {
+            var index = getQueryString("index");
+            if (index==0||index==null){
+                $(".home-botton-hui").click();
+            } else {
+                homeDivClick(index,false);
+            }
+        },magnify_time+magnify_unit);
+        setTimeout(function () {
+            isLoading = true;
+        },magnify_time+magnify_unit);
+    }
+    /**
+     * 加载地图配置
+     */
+    mapEchartsAction.InitData();
+    /**
+     * 获取 url 地址内的参数
+     * @param name
+     * @returns {*}
+     */
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    function changeURLPar(url, ref, value) {
+        var str = "";
+        if (url.indexOf('?') != -1)
+            str = url.substr(url.indexOf('?') + 1);
+        else
+            return url + "?" + ref + "=" + value;
+        var returnurl = "";
+        var setparam = "";
+        var arr;
+        var modify = "0";
+        if (str.indexOf('&') != -1) {
+            arr = str.split('&');
+            for (i in arr) {
+                if (arr[i].split('=')[0] == ref) {
+                    setparam = value;
+                    modify = "1";
+                }
+                else {
+                    setparam = arr[i].split('=')[1];
+                }
+                returnurl = returnurl + arr[i].split('=')[0] + "=" + setparam + "&";
+            }
+            returnurl = returnurl.substr(0, returnurl.length - 1);
+            if (modify == "0")
+                if (returnurl == str)
+                    returnurl = returnurl + "&" + ref + "=" + value;
+        }
+        else {
+            if (str.indexOf('=') != -1) {
+                arr = str.split('=');
+                if (arr[0] == ref) {
+                    setparam = value;
+                    modify = "1";
+                }
+                else {
+                    setparam = arr[1];
+                }
+                returnurl = arr[0] + "=" + setparam;
+                if (modify == "0")
+                    if (returnurl == str)
+                        returnurl = returnurl + "&" + ref + "=" + value;
+            }
+            else
+                returnurl = ref + "=" + value;
+        }
+        return url.substr(0, url.indexOf('?')) + "?" + returnurl;
+    }
+    /**
+     * 设置 url 地址内的参数
+     * @param url
+     * @param param
+     * @param value
+     * @returns {*}
+     */
+    function set_url_param(url, param, value) {
+        return changeURLPar(url, param, value);
+    }
+    var dynamicLoading = {
+        css: function (path) {
+            if (!path || path.length === 0) {
+                throw new Error('argument "path" is required !');
+            }
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.href = path;
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            head.appendChild(link);
+        },
+        js: function (path) {
+            if (!path || path.length === 0) {
+                throw new Error('argument "path" is required !');
+            }
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.src = path;
+            script.type = 'text/javascript';
+            head.appendChild(script);
+        }
+    }
+    function loading() {
+        buildBorderData("indexBody");
+        buildBorderData("labourBody");
+        buildBorderData("operateBody");
+        buildBorderData("publicSerBody");
+        buildBorderData("welfareBody");
+        buildBorderData("expendBody");
+        buildBorderData("liveBody");
+        cartogram.InitMap($("#map_index")[0]);
+        cartogram.Init("cartogram_index");
+        cartogram.InitMap($("#map_labour")[0]);
+        cartogram.Init("cartogram_labour");
+        cartogram.InitMap($("#operate_map")[0]);
+        cartogram.Init("cartogram_operate");
+        cartogram.Init("cartogram_public");
+        cartogram.InitMap($("#map_chengdu")[0]);
+        cartogram.Init("cartogram_welfare");
+        cartogram.InitMap($("#map_expend")[0]);
+        cartogram.Init("cartogram_expend");
+        cartogram.Init("cartogram_lineLive");
+        layui.use('element', function(){
+            var element = layui.element;
+        });
+    }
+    // loading();
+     function js_loading(index) {
+        switch (index) {
+            case 0:
+                PauseOtherBorderAnimation("indexBody");
+                return;
+            case 1:
+                PauseOtherBorderAnimation("labourBody");
+                return;
+            case 2:
+                PauseOtherBorderAnimation("operateBody");
+                return;
+            case 3:
+                PauseOtherBorderAnimation("publicSerBody");
+                return;
+            case 4:
+                PauseOtherBorderAnimation("welfareBody");
+                return;
+            case 5:
+                PauseOtherBorderAnimation("expendBody");
+                return;
+            case 6:
+                PauseOtherBorderAnimation("liveBody");
+                return;
+        }
+    };
+    var isPageShow = false;
+    //显示传入下标界面 隐藏其他
+     function show_homl_page(index,isAnimation) {
+        $(".content_element").each(function (i) {
+            if (index == i) {
+                $(this).show();
+                if (!isAnimation){
+                    $(this).css("transform","scale(1,1)");
+                    $(this).css("transform-origin","center center");
+                    $(this).css("-webkit-animation","none");
+                }
+                js_loading(index);
+                isPageShow = true;
+            } else {
+                $(this).hide();
+            }
+        });
+    };
+    //菜单栏点击
+    $(".hidden-sm").bind("click", function () {
+        var index = $(this).index();
+        history.pushState({}, "",set_url_param(window.location.href, "index", index));
+        show_homl_page(index,false);
+    });
+    $(".home-botton-hui").bind("click",function () {
+        $(".zzsc-container").addClass("hidder");
+        $(".navbar").removeClass("hidder");
+        show_homl_page(0,true);
+        menuStatus(0);
+        history.pushState({}, "", set_url_param(window.location.href, "index", 0));
+        PauseOtherBorderAnimation("indexBody");
+    });
+    function menuStatus(index){
+        $(".hidden-sm a").each(function (i) {
+            if(i!=index){
+                $(this).css("color","#647196");
+            }else{
+                $(this).css("color","#0086DB");
+            }
+        });
+    }
+    $(".hidden-sm").click(function () {
+        var index = $(this).index();
+        menuStatus(index);
+    });
+    var divId = "index";
+    $("#canvas").attr({
+        "width": $(window).width(),
+        "height": $(window).height()
+    });
+    //进度滚动
+    function progressBar(){
+        $(".public_season_comment .progress-bar").each(function () {
+            setLoadber(this,0)
+        })
+    }
+    progressBar();
+    function setLoadber(that, index) {
+        var len = $(that).find(".loadbar li");
+        $($(len)[index]).addClass("ins")
+        if(index <= len.length){
+            setTimeout(function () {
+                setLoadber(that, index+1)
+            },100);
+        }else{
+            return;
+        }
+    }
+    //数字滚动
+    $(function () {
+        function numberAnimation() {
+            $(".table_content_ul").each(function () {
+                var i = 1;
+                $(this).find(".li-table").each(function () {
+                    if(i%2 == 0){
+                        var random = getRandom(100000000, 999999999);
+                        var nums = $(this).find(".number" + i).numberAnimate({num: random, speed: 2000,dot:2});
+                        nums.resetData(Number(random) + 20.22);
+                    }else{
+                        var random = getRandom(10000000, 99999999);
+                        var nums = $(this).find(".number" + i).numberAnimate({num: random, speed: 2000,dot:0});
+                        nums.resetData(Number(random) + 20.22);
+                    }
+                    i++;
+                })
+            });
+            var j = 1;
+            $(".public_fund .public_fund_back").each(function () {
+                var random = getRandom(100000000, 999999999);
+                var nums = $(this).find(".number" + j).numberAnimate({num: random, speed: 2000,dot:2});
+                nums.resetData(Number(random) + 20.22);
+                j++;
+            });
+        }
+        numberAnimation();
+        setInterval(function () {
+            numberAnimation()
+        }, 3500);
+    });
+    //添加旋转效果
+    AddRotate($(".round_p_div"), [5, 15], 0, divId);
+    ActionRotate(divId);
+</script>
+</html>
